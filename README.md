@@ -1,6 +1,3 @@
 # Today I Learn
 
-asdf
-
-asdf
-
+asd
