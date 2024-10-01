@@ -91,3 +91,5 @@ np.random.random() : 배열에 임의의 값을 삽입하는 함수.
 ![[Pasted image 20241001230451.png]]
 
 ## 3) 라인 추가와 범례 삽입하기
+
+![[Pasted image 20241001230644.png]]
