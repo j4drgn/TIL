@@ -21,3 +21,8 @@ DataFrame은 열(columns), 인덱스(index), 값(Values)으로 구성
 ![[Pasted image 20241001220933.png]]
 
 ## 3) 데이터프레임의 생성
+### 데이터프레임은 리스트(List), 시리즈(Series), 딕셔너리(dict), Numpy의 ndarrays, 또 다른 데이터 프레임으로부터 생성할 수 있다.
+
+이중 리스트로 생성하는 경우
+
+![[Pasted image 20241001222300.png]]
