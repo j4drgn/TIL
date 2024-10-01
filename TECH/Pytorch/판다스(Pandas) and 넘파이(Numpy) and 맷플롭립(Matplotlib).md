@@ -50,3 +50,4 @@ DataFrame은 열(columns), 인덱스(index), 값(Values)으로 구성
 ### 예시 : example.csv라는 파일이 있다면, df = pd.read_csv("example.csv)처럼 사용
 
 # 2. 넘파이(Numpy)
+### 수치 데이터를 다루는 파이썬 패키지. 다차원 행렬 구조인 ndarray()를 사용하여 선형대수 계산에서 주로 사용함. 또한 순수 파이썬을 통한 계산보다 편의성과 속도에서 압도적인 성능 자랑함.
