@@ -1,4 +1,4 @@
-## 1. Pandas
+# 1. Pandas
 ### Pandas란? 파이썬 데이터 처리를 위한 라이브러리
 ### Pandas는 총 세 가지의 데이터 구조를 사용
 ### - 시리즈(Series)
@@ -40,3 +40,13 @@ DataFrame은 열(columns), 인덱스(index), 값(Values)으로 구성
 ### - df.head(n) : 앞 부분을 n개만 보기
 ### - df.tail(n) : 뒷 부분을 n개만 보기
 ### - df['열이름'] : 해당되는 열을 확인
+
+![[Pasted image 20241001223410.png | 200]]
+![[Pasted image 20241001223455.png | 200]]
+![[Pasted image 20241001223514.png | 200]]
+
+## 5) 외부 데이터 읽기
+### 다양한 데이터 파일을 읽고 데이터 프레임을 생성할 수 있음, csv파일 기준으로 pandas.read_csv()을 이용
+### 예시 : example.csv라는 파일이 있다면, df = pd.read_csv("example.csv)처럼 사용
+
+# 2. 넘파이(Numpy)
