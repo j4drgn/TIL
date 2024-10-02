@@ -84,6 +84,7 @@ DataFrame은 열(columns), 인덱스(index), 값(Values)으로 구성
 
 ## 7) Numpy 연산 : Numpy에서 배열 간 연산을 수행하는 방법에 대한 내용.
 
+
 # 3. 맷플롯립(Matplotlib)
 ## 데이터를 차트나 플롯(plot)으로 시각화하는 패키지.
 
