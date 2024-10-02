@@ -89,7 +89,7 @@ DataFrame은 열(columns), 인덱스(index), 값(Values)으로 구성
 - np.divide(result, x), result/x
 
 # 3. 맷플롯립(Matplotlib)
-## 데이터를 차트나 플롯(plot)으로 시각화하는 패키지.
+## 데이터를 차트나 플롯(plot)으로 시각화하는 패키지, 데이터 분석 이전에 데이터 이해를 위한 시각화나, 데이터 분석 후에 결과를 시각화하기 위해 사용함.
 
 ## 1) 라인 플롯 그리기
 
