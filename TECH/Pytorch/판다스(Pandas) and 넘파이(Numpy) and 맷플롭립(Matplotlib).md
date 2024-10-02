@@ -83,7 +83,10 @@ DataFrame은 열(columns), 인덱스(index), 값(Values)으로 구성
 ## 6) Numpy 정수 인덱싱(integer indexing) : 연속되지 않은 특정 부분 중 원하는 부분을 추출해서 하나의 배열로 만드는 함수.
 
 ## 7) Numpy 연산 : Numpy에서 배열 간 연산을 수행하는 방법에 대한 내용.
-
+- ### np.add(x,y), x+y 와 동일
+- np.subtract(x,y), x-y와 동일
+- np.multiply(result * x), result * x
+- np.divide(result, x), result/x
 
 # 3. 맷플롯립(Matplotlib)
 ## 데이터를 차트나 플롯(plot)으로 시각화하는 패키지.
