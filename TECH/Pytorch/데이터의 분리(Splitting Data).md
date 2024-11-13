@@ -39,4 +39,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size= 0.2, random
 ```
 여기서 train_size나 test_size는 둘 중에 하나만 기재해도 되는데 그 이유는 둘 중 작성한 것에 대한 비율로 데이터를 분리하기 때문입니다.
 
-test_size 함수는 테스트용 데이터 개수를 지정하며, 입력할때 1보다 작은 실수를 기재해야합니다.
+test_size 함수는 테스트용 데이터 개수를 지정하며, 입력할때 1보다 작은 실수를 기재해야합니다. 이는 비율을 입력하는 방식입니다.
+
+train_size는 학습용 데이터 갯수이며, 위와 동일합니다.
+
