@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Position 속성</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+      }
+      body {
+        margin: 0;
+      }
+      #parent {
+        /* position: static; */
+        /*static이 기본 값이고, 상위 태그의 postion 속성이 static이면 해당 태그가 기준이 되지 않음*/
+        /* position: relative; */
+        position: absolute;
+        width: 200px;
+        height: 300px;
+        border: solid 5px #000000;
+        margin: 50px 0 0 50px;
+      }
+
+      #boxA,
+      #boxB,
+      #boxC {
+        width: 80px;
+        height: 80px;
+      }
+      #boxA {
+        background-color: #ff0000;
+      }
+      #boxB {
+        background-color: #0f0;
+      }
+      #boxC {
+        background-color: #00f;
+      }
+      #boxB {
+        /* position: relative; */
+        /* static에 해당되는 위치를 기준으로 여백 결정 */
+        position: absolute;
+        /* 상위 태그의 position 속성 값이 static인 경우 : 브라우저 화면 경우 */
+        top: 20px;
+        left: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="parent">
+      <div id="boxA">A</div>
+      <div id="boxB">B</div>
+      <div id="boxC">C</div>
+    </div>
+  </body>
+</html>

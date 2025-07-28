@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>클래스 선택자</title>
+    <style>
+      .select {
+        background-color: blue;
+      }
+      li.select {
+        color: white;
+        /* 태그 선택자와 클래스 선택자 중복 사용 가능
+		태그를 선택하고 선택된 태그 내에서 클래스를 선택하게 하면 됌.*/
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="select">제목</h1>
+    <ul>
+      <li class="select">사과</li>
+      <li>바나나</li>
+      <li>오렌지</li>
+      <li>감</li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>overflow</title>
+    <style type="text/css">
+      div {
+        width: 200px;
+        height: 175px;
+        border: solid 1px black;
+        /* 부모 영역을 벗어나는 개체는 모두 감춤 */
+        /* overflow: hidden; */
+        /* 부모 영역을 벗어나는 개체에 스크롤바를 달음 */
+        /* overflow: scroll; */
+        /* 부모 영역을 벗어나는 개체 표현하기 위해 scroll바를 생성 필요 방향만 생성 */
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="image/fashion1.png" />
+      <img src="image/fashion2.png" />
+      <img src="image/fashion3.png" />
+    </div>
+  </body>
+</html>

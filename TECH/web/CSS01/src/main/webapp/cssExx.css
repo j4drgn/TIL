@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+#wrap {
+  margin: 0 auto; /*가운데 정렬*/
+  width: 800px; /*가운데 정렬을 위한 width값이 있어야함.*/
+  text-align: center;
+}
+
+#mainMenuBox {
+  height: 35px;
+  line-height: 35px;
+  background-color: #333;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#mainMenuBox ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+
+#mainMenuBox li {
+  flex-grow: 1;
+  text-align: center;
+  border: solid 1px red;
+}
+
+#mainMenuBox a {
+  text-decoration: none;
+  color: white;
+  display: block; /*a태그는 inline속상이라 -> block으로 속성 변경시 마우스 반응 영역이 상위 태그에 준해서 확장됨*/
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#mainMenuBox a:hover {
+  color: red;
+  text-decoration: underline;
+  background-color: black;
+}
+
+#productBox {
+  margin-bottom: 30px;
+}
+
+#productBox div {
+  display: inline-block;
+  margin: 20px;
+}
+
+#productBox div > h3.prdTitle {
+  margin-bottom: 5px;
+  color: blue;
+  font-weight: bold;
+}
+
+#productBox div > p.prdPrice {
+  color: #ff7800;
+  font-weight: bold;
+}
+
+#productBox div img:hover {
+  opacity: 0.5;
+}
+
+#infoBox div.box {
+  display: inline-block;
+  border: 1px solid #9e9e9e;
+  width: 42%;
+  height: 150px;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 5px;
+  text-align: left;
+}
+
+#infoBox div > a:hover {
+  color: skyblue;
+}
+
+#infoBox div > a:visited {
+  color: blue;
+}
