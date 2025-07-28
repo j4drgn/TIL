@@ -1,0 +1,10 @@
+.obsidian/
+
+*.gitignore
+
+template/
+
+Image/%
+
+# Cursor rules file
+.cursorrules
