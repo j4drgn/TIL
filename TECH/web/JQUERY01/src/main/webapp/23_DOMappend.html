@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>append()/prepend()/after()/before()</title>
+    <style type="text/css">
+      #box {
+        width: 500px;
+        height: 200px;
+        line-height: 200px;
+        border: 1px solid #000;
+      }
+      img {
+        vertical-align: middle;
+      }
+    </style>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        // <img> 태그 내용을 img 변수에 저장
+        var img = "<img src='image/banana.png'>";
+
+        // [prepend] 버튼 클릭했을 때
+        $("#prepend").on("click", function () {
+          $("#box").prepend(img); //선택객체 내 요소들 중 맨 앞에 추가
+        });
+        // [append] 버튼 클릭했을 때
+        $("#append").on("click", function () {
+          $("#box").append(img); //선택객체 내 요소들 중 맨 뒤에 추가
+        });
+        // [before] 버튼 클릭했을 때
+        $("#before").on("click", function () {
+          $("#box").before(img); //선택객체 내 요소들 중 맨 에 추가
+        });
+        // [after] 버튼 클릭했을 때
+        $("#after").on("click", function () {
+          $("#box").after(img); //선택객체 내 요소들 중 맨 앞에 추가
+        });
+        // [empty] 버튼 클릭했을 때
+        $("#empty").on("click", function () {
+          $("#box").empty(img); //선택객체 내 요소들 중 맨 앞에 추가
+        });
+        // [remove] 버튼 클릭했을 때
+        $("#remove").on("click", function () {
+          // $("#box").remove(img); //선택객체 삭제
+          $("img").remove(); //문서 내 모든 img 태그 삭제
+        });
+        // [초기화] 버튼 클릭했을 때
+        $("#initiate").on("click", function () {
+          $("div").empty().append("div 내부<img src='image/apple.png'/>");
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <button id="prepend">prepend</button>
+    <button id="append">append</button>
+    <button id="before">before</button>
+    <button id="after">after</button>
+    <button id="empty">empty</button>
+    <button id="remove">remove</button>
+    <button id="initiate">초기화</button>
+    <p></p>
+    <div id="box">div 내부 <img src="image/apple.png" /></div>
+  </body>
+</html>

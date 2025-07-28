@@ -1,0 +1,73 @@
+/* 탭 메뉴 영역 */
+#tabMenuBox {
+  margin: 50px auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* 탭 메뉴 */
+#tabMenu {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+
+#tabMenu ul {
+  display: flex;
+  height: 50px;
+}
+
+#tabMenu li {
+  flex: 1;
+  text-align: center;
+}
+
+#tabMenu li a {
+  display: block;
+  line-height: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.3s;
+}
+
+#tabMenu li a:hover {
+  background-color: #e9ecef;
+  color: #333;
+}
+
+#tabMenu li.selectedItem a {
+  background-color: #fff;
+  color: #007bff;
+  border-bottom: 3px solid #007bff;
+}
+
+/* 탭 컨텐츠 */
+#tabContent {
+  padding: 30px;
+}
+
+.tabContent {
+  display: none;
+}
+
+.tabContent:first-child {
+  display: block;
+}
+
+.tabContent h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.tabContent p {
+  line-height: 1.8;
+  color: #666;
+}
+
+/* 영역 벗어난 이미지 숨김 */
+.tabContent img {
+  max-width: 100%;
+  height: auto;
+}

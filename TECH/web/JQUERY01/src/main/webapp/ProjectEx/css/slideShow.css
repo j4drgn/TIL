@@ -1,0 +1,59 @@
+/* 슬라이드 쇼 영역 */
+#slideShowBox {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  margin: 30px auto;
+}
+
+#slidePanel {
+  width: 500%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  left: 0;
+  transition: left 0.5s ease-in-out;
+}
+
+#slidePanel img {
+  width: 20%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 컨트롤 버튼 */
+#controlPanel {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+#prevButton,
+#nextButton {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+#prevButton:hover,
+#nextButton:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* 이미지 영역 벗어나면 숨김 */
+@media screen and (max-width: 768px) {
+  #slideShowBox {
+    height: 300px;
+  }
+}

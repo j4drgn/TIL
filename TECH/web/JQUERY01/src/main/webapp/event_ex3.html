@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <style>
+      div {
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        color: white;
+        background-color: teal;
+        border-radius: 20px;
+      }
+    </style>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("div").on("click", function () {
+          $(this).after(
+            "<p><input type='button' id='newBtn1' value='새버튼1'></p>" +
+              "<p><input type='button' id='newBtn2' value='새버튼2'></p>"
+          );
+        });
+
+        $(document).on(
+          {
+            mouseenter: function () {
+              // 마우스가 버튼 위에 올라가면 배경색을 초록색으로 변경
+              $(this).css("background-color", "green");
+            },
+            mouseleave: function () {
+              // 마우스가 버튼에서 벗어나면 배경색을 노란색으로 변경
+              $(this).css("background-color", "yellow");
+            },
+          },
+          "#newBtn1"
+        );
+
+        // 버튼 클릭 시 새 창에서 URL 열기
+        $(document).on("click", "#newBtn1", function () {
+          window.open("https://www.naver.com");
+        });
+
+        $(document).on("click", "#newBtn2", function () {
+          window.open("https://www.google.com");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>버튼</div>
+  </body>
+</html>

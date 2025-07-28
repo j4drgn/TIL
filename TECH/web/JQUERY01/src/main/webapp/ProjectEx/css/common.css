@@ -1,0 +1,63 @@
+/* 모든 페이지에 공통으로 적용되는 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+/* 공통 레이아웃 */
+#headerBox,
+#mainMenuBox,
+#slideShowBox,
+#tabMenuBox,
+#productBox,
+#footerBox {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* Top으로 이동하는 버튼 */
+.topButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+}
+
+/* 반응형 웹을 위한 미디어 쿼리 */
+@media screen and (max-width: 1200px) {
+  #headerBox,
+  #mainMenuBox,
+  #slideShowBox,
+  #tabMenuBox,
+  #productBox,
+  #footerBox {
+    width: 100%;
+    padding: 0 20px;
+  }
+}

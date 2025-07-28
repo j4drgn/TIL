@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>stopPropagation()</title>
+    <link rel="icon" type="image/png" href="#" />
+    <style type="text/css">
+      #parent {
+        border: solid 1px blue;
+      }
+      #child {
+        border: solid 1px red;
+        width: 20%;
+      }
+    </style>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+      // 문서(document)가 준비 완료되면 함수 실행
+      $(document).ready(function () {
+        $("#parent").on("click", function (e) {
+          alert("parent");
+        });
+
+        $("#child").on("click", function () {
+          //상위 요소로 이벤트가 전파되는 것을 중지
+          e.stopPropagation();
+          alert("child");
+        });
+
+        //div 중첩되어 있어서 child 영역을 클릭해도 부모 영역에도 클릭이 전파되는 현상 : 이벤트 버블링
+        //stopPropagation()
+      });
+    </script>
+  </head>
+  <body>
+    <div id="parent">
+      <div id="child">클릭</div>
+    </div>
+  </body>
+</html>

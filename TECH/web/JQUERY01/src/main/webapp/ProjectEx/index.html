@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실전 프로젝트 예제</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/slideShow.css" />
+    <link rel="stylesheet" href="css/tabMenu.css" />
+    <link rel="stylesheet" href="css/product.css" />
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/subMenu.js"></script>
+    <script src="js/slideShow.js"></script>
+    <script src="js/tabMenu.js"></script>
+    <script src="js/product.js"></script>
+  </head>
+  <body>
+    <!-- Header (Top Menu) -->
+    <header id="headerBox">
+      <div class="logo">
+        <h1>ProjectEx</h1>
+      </div>
+      <div class="topMenuBox">
+        <nav>
+          <ul>
+            <li><a href="#">메뉴1</a></li>
+            <li><a href="#">메뉴2</a></li>
+            <li><a href="#">메뉴3</a></li>
+            <li><a href="#">메뉴4</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Menu / Sub Menu -->
+    <nav id="mainMenuBox">
+      <ul id="menuItem">
+        <li><a href="#">메인메뉴1</a></li>
+        <li><a href="#">메인메뉴2</a></li>
+        <li><a href="#">메인메뉴3</a></li>
+        <li><a href="#">메인메뉴4</a></li>
+        <li><a href="#">메인메뉴5</a></li>
+        <li><a href="#">메인메뉴6</a></li>
+      </ul>
+    </nav>
+
+    <div id="subMenuBox" style="visibility: hidden">
+      <div class="subMenuItem" id="subMenuItem1">
+        <ul>
+          <li><a href="#">서브메뉴1-1</a></li>
+          <li><a href="#">서브메뉴1-2</a></li>
+          <li><a href="#">서브메뉴1-3</a></li>
+        </ul>
+      </div>
+      <div class="subMenuItem" id="subMenuItem2">
+        <ul>
+          <li><a href="#">서브메뉴2-1</a></li>
+          <li><a href="#">서브메뉴2-2</a></li>
+          <li><a href="#">서브메뉴2-3</a></li>
+        </ul>
+      </div>
+      <div class="subMenuItem" id="subMenuItem3">
+        <ul>
+          <li><a href="#">서브메뉴3-1</a></li>
+          <li><a href="#">서브메뉴3-2</a></li>
+          <li><a href="#">서브메뉴3-3</a></li>
+        </ul>
+      </div>
+      <div class="subMenuItem" id="subMenuItem4">
+        <ul>
+          <li><a href="#">서브메뉴4-1</a></li>
+          <li><a href="#">서브메뉴4-2</a></li>
+          <li><a href="#">서브메뉴4-3</a></li>
+        </ul>
+      </div>
+      <div class="subMenuItem" id="subMenuItem5">
+        <ul>
+          <li><a href="#">서브메뉴5-1</a></li>
+          <li><a href="#">서브메뉴5-2</a></li>
+          <li><a href="#">서브메뉴5-3</a></li>
+        </ul>
+      </div>
+      <div class="subMenuItem" id="subMenuItem6">
+        <ul>
+          <li><a href="#">서브메뉴6-1</a></li>
+          <li><a href="#">서브메뉴6-2</a></li>
+          <li><a href="#">서브메뉴6-3</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Slide Show -->
+    <section id="slideShowBox">
+      <div id="slidePanel">
+        <img src="image/img1-1.jpg" alt="슬라이드 이미지1" />
+        <img src="image/img1-2.jpg" alt="슬라이드 이미지2" />
+        <img src="image/img1-3.jpg" alt="슬라이드 이미지3" />
+        <img src="image/img1-4.jpg" alt="슬라이드 이미지4" />
+        <img src="image/img2-1.jpg" alt="슬라이드 이미지5" />
+      </div>
+      <div id="controlPanel">
+        <img src="image/left-arrow.png" id="prevButton" alt="이전 버튼" />
+        <img src="image/right-arrow.png" id="nextButton" alt="다음 버튼" />
+      </div>
+    </section>
+
+    <!-- Tab Menu -->
+    <section id="tabMenuBox">
+      <div id="tabMenu">
+        <ul>
+          <li class="selectedItem"><a href="#content1">탭메뉴1</a></li>
+          <li><a href="#content2">탭메뉴2</a></li>
+          <li><a href="#content3">탭메뉴3</a></li>
+        </ul>
+      </div>
+      <div id="tabContent">
+        <div id="content1" class="tabContent">
+          <h2>탭메뉴 내용 1</h2>
+          <p>첫 번째 탭메뉴의 내용입니다.</p>
+        </div>
+        <div id="content2" class="tabContent">
+          <h2>탭메뉴 내용 2</h2>
+          <p>두 번째 탭메뉴의 내용입니다.</p>
+        </div>
+        <div id="content3" class="tabContent">
+          <h2>탭메뉴 내용 3</h2>
+          <p>세 번째 탭메뉴의 내용입니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Products -->
+    <section id="productBox">
+      <h2>베스트 상품</h2>
+      <div class="product">
+        <div class="productItem">
+          <img src="image/img2-1.jpg" alt="상품1" />
+          <h3>상품 1</h3>
+          <p>상품 1 설명</p>
+        </div>
+        <div class="productItem">
+          <img src="image/img2-2.jpg" alt="상품2" />
+          <h3>상품 2</h3>
+          <p>상품 2 설명</p>
+        </div>
+        <div class="productItem">
+          <img src="image/img2-3.jpg" alt="상품3" />
+          <h3>상품 3</h3>
+          <p>상품 3 설명</p>
+        </div>
+        <div class="productItem">
+          <img src="image/img2-4.jpg" alt="상품4" />
+          <h3>상품 4</h3>
+          <p>상품 4 설명</p>
+        </div>
+        <div class="productItem">
+          <img src="image/img1-1.jpg" alt="상품5" />
+          <h3>상품 5</h3>
+          <p>상품 5 설명</p>
+        </div>
+        <div class="productItem">
+          <img src="image/img1-2.jpg" alt="상품6" />
+          <h3>상품 6</h3>
+          <p>상품 6 설명</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer (Bottom Menu) -->
+    <footer id="footerBox">
+      <div id="bottomMenuBox">
+        <ul>
+          <li><a href="#">회사소개</a></li>
+          <li><a href="#">개인정보처리방침</a></li>
+          <li><a href="#">이용약관</a></li>
+          <li><a href="#">사이트맵</a></li>
+        </ul>
+      </div>
+      <div id="companyInfo">
+        <p>회사명: ProjectEx | 대표: 홍길동 | 주소: 서울시 강남구 테헤란로</p>
+        <p>전화번호: 02-1234-5678 | 이메일: info@projectex.com</p>
+        <p>&copy; 2023 ProjectEx. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

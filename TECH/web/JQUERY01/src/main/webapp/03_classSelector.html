@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="jquery-3.7.1.min.js"></script>
+    <title>jQuery 클래스 선택자</title>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        //한번에 여러 개의 속성 설정하려면 {} 사용
+        $(".group1").css({
+          color: "white",
+          float: "left",
+          background: "blue",
+          width: "90%",
+          height: "30px",
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="box1">
+      <div class="group1">A</div>
+      <div class="group2">A</div>
+      <div class="group1">B</div>
+      <div class="group2">B</div>
+      <div class="group1">C</div>
+      <div class="group2">C</div>
+    </div>
+  </body>
+</html>

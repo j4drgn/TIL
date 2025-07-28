@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+:root {
+  --main-width: 400px;
+  --border-color: #95a6b4;
+  --light-border: #ddd;
+  --chat-bg: #9bbbd4;
+  --btn-color: yellow;
+  --send-bg: #fef01b;
+  --receive-bg: #ffffff;
+  --border-radius: 5px;
+  --padding-standard: 10px;
+  --msg-border-radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#chatbotBox {
+  margin: 20px auto;
+  width: var(--main-width);
+  height: 650px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+#chatHeader {
+  padding: var(--padding-standard) 15px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#closeBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+#chatBox {
+  height: 550px;
+  width: var(--main-width);
+  overflow-y: scroll;
+  padding: var(--padding-standard) 15px;
+  background: var(--chat-bg);
+  flex-grow: 1;
+}
+
+#chatForm {
+  width: var(--main-width);
+  padding: var(--padding-standard);
+  border-top: 1px solid var(--light-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#message {
+  width: 310px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid var(--light-border);
+  border-radius: var(--border-radius);
+}
+
+#submitBtn {
+  width: 75px;
+  height: 30px;
+  border: none;
+  background: var(--btn-color);
+  color: black;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+/* 동적으로 생성되는 객체들에 대한 css */
+.msgBox {
+  padding: 3px 5px;
+  word-break: break-all;
+  max-width: 370px;
+  margin-bottom: var(--padding-standard);
+  border-radius: var(--msg-border-radius);
+  overflow: hidden;
+  clear: both;
+}
+
+.msgBox > span {
+  padding: 3px;
+  word-break: break-all;
+  max-width: 300px;
+  margin-bottom: var(--padding-standard);
+  border-radius: var(--msg-border-radius);
+  display: inline-block;
+}
+
+.msgBox.send > span {
+  background: var(--send-bg);
+  float: right;
+}
+
+.msgBox.receive > span {
+  background: var(--receive-bg);
+  float: left;
+}

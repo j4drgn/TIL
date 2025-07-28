@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>윈도우 이벤트 : 이미지 크기 동적 변경</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+      }
+      /* img { width:100%;}  */
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        //윈도우 크기 변경될 때마다 윈도우 크기에 맞춰 이미지 크기 변경
+        $(window).on("resize", function () {
+          var winWidth = $(window).width();
+          //이미지 가로 세로 비율에 맞춰 높이 구하기
+          var imgHeight = (winWidth * 600) / 1920;
+
+          $("#topImg").css({ width: winWidth, height: imgHeight });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="topImgBox"><img src="image/topImg.jpg" id="topImg" /></div>
+  </body>
+</html>

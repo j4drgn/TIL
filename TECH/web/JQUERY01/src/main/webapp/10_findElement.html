@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS 선택자를 이용해 원하는 노드 찾기</title>
+    <style type="text/css">
+      #menuBox div {
+        float: left;
+        background-color: green;
+        width: 100px;
+        height: 50px;
+      }
+    </style>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var $menuItem = $(".menuItem");
+        // alert($menuItem.length);
+        //값을 출력하기 위해 특정 요소의 참조값 반환 저장
+        var $indexSpan = $("#indexSpan");
+
+        //$menuItem변수는 배열 같은 집합 형태임 - jquery는 each(func)제공하고 있음
+        //jquery event 메소드 객체.이벤트명(func)
+        //객체.hover : 객체 영역으로 마우스가 들어갔을때 나왔을때의 두가지의 의미를 가지고 있음.
+        //두 개의 함수 연결 가능 함수, 함수
+        $menuItem.each(function (index) {
+          $(this).hover(
+            function () {
+              //마우스가 해당 영역으로(this)으로 in
+              $(this).css("background", "yellow");
+              $indexSpan.text(index);
+            },
+            function () {
+              $(this).css("background", "green");
+              $indexSpan.text("");
+            }
+          );
+        });
+      }); //ready() 종료
+    </script>
+  </head>
+
+  <body>
+    <div id="wrap">
+      <h2>인덱스 : <span id="indexSpan">index</span></h2>
+      <div id="menuBox">
+        <div class="menuItem"></div>
+        <div class="menuItem"></div>
+        <div class="menuItem"></div>
+        <div class="menuItem"></div>
+      </div>
+    </div>
+  </body>
+</html>
