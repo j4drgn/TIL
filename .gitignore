@@ -74,3 +74,5 @@ Image/%
 .DS_Store
 Thumbs.db
 desktop.ini
+# Auto-generated React README files
+TECH/React/*/README.md
