@@ -33,6 +33,7 @@
    - Remove internal .git directories before adding
    - Or add as submodules
 2. Add unnecessary build files or temporary files to .gitignore
+3. Do not commit auto-generated README.md files from frameworks like React
 
 ## Daily Learning Summary
 
@@ -41,4 +42,4 @@
 
 ## Response Language Rule
 
-- Always respond in Korean regardless of the language used in this file
+- Always respond in English regardless of the language used in this file
