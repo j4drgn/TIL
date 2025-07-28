@@ -1,0 +1,138 @@
+@charset "UTF-8";
+/*menu.css*/
+
+/* 모든 ul 태그에 적용 */
+ul {
+  margin-top: 0;
+  padding: 0;
+  list-style: none; /*type없음*/
+}
+
+/************ Main Menu ***************/
+#mainMenuBox {
+  width: 1280px;
+  height: 35px;
+  line-height: 35px;
+  background-color: #ffffff;
+  border-top: solid #ccc 1px;
+  border-bottom: solid #ccc 1px;
+  z-index: 10; /*스크롤시 위에 오도록*/
+}
+
+#mainMenuBox ul {
+  margin: 0;
+}
+
+#mainMenuBox li {
+  float: left;
+  text-align: center;
+  width: 16%;
+  height: 30px;
+}
+
+#mainMenuBox li:first-child {
+  /* 첫번째 메뉴항목 */
+  width: 19%; /* 20%지만 border 적용 할것이라 19% */
+  border: solid 3px black;
+}
+
+#mainMenuBox ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#mainMenuBox ul li a:hover {
+  color: red;
+}
+
+/*************sub menu ***********************/
+
+#subMenuBox {
+  width: 1280px;
+  height: 160px;
+  background-color: white;
+  text-align: center;
+  padding-bottom: 0;
+  position: absolute;
+  z-index: 10; /*슬라이드 쇼 박스 위로 드롭다운, 스크롤될때 스크롤 되는객체 위에 표현*/
+  visibility: hidden; /*시작시 sub 메뉴 항목 숨김*/
+}
+
+.subMenuItem {
+  width: 15%;
+  background-color: white;
+  border-left: solid #ccc 1px;
+  border-right: solid #ccc 1px;
+  margin-top: 10px;
+}
+
+/* 첫번째 서브메뉴 항목 왼쪽에서 5% 되는 위치에 배치 */
+#subMenuItem1 {
+  position: absolute;
+  margin-left: 5%;
+}
+
+#subMenuItem2 {
+  position: absolute;
+  margin-left: 20%;
+}
+
+#subMenuItem3 {
+  position: absolute;
+  margin-left: 35%;
+}
+
+#subMenuItem4 {
+  position: absolute;
+  margin-left: 50%;
+}
+
+#subMenuItem5 {
+  position: absolute;
+  margin-left: 65%;
+}
+
+#subMenuItem6 {
+  position: absolute;
+  margin-left: 80%;
+}
+
+.subMenuItem ul {
+  background-color: white;
+}
+
+.subMenuItem ul li {
+  height: 35px;
+  line-height: 35px;
+}
+
+.subMenuItem li a {
+  display: lnline-block;
+  color: #333333;
+  text-decoration: none;
+}
+
+.subMenuItem a:hover {
+  background-color: white;
+  text-decoration: underline;
+  color: black;
+}
+
+#bottomMenuBox {
+  height: 30px;
+  line-height: 30px;
+}
+
+#bottomMenuBox li {
+  display: inline-block;
+  width: 16%;
+  height: 30px;
+  text-align: center;
+}
+
+#bottomMenuBox li a {
+  text-decoration: none;
+  color: #333333;
+}
