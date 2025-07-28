@@ -1,0 +1,37 @@
+div {
+  max-width: 800px;
+  margin: 0 auto;
+}
+ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+li {
+  margin: 0 15px;
+}
+a {
+  text-decoration: none;
+  color: #282c34;
+  font-weight: bold;
+}
+a:hover {
+  color: #61dafb;
+}
+h2 {
+  color: #282c34;
+  text-align: center;
+}
+.book-detail {
+  text-align: left;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.book-detail a {
+  display: inline-block;
+  background-color: #61dafb;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
