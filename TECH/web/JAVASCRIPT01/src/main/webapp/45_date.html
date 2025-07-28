@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Date 객체</title>
+    <script type="text/javascript">
+      //Date 객체 변수 today를 생성
+      var today = new Date();
+      var today2 = new Date();
+
+      //today를 활용해서 Date 객체의 기능 사용
+      var year = today.getFullYear();
+      var month = today.getMonth() + 1;
+      var dates = today.getDate();
+      var day; //  요일 저장할 변수
+
+      //   요일 설정
+      switch (dates) {
+        case 0:
+          day = "일";
+          break;
+        case 1:
+          day = "월";
+          break;
+        case 2:
+          day = "화";
+          break;
+        case 3:
+          day = "수";
+          break;
+        case 4:
+          day = "목";
+          break;
+        case 5:
+          day = "금";
+          break;
+        default:
+          day = "토";
+      }
+
+      document.write(
+        "오늘은 " +
+          year +
+          "년 " +
+          month +
+          "월 " +
+          dates +
+          "일 " +
+          day +
+          "요일입니다."
+      );
+
+      var hours = today.getHours();
+      var minutes = today.getMinutes();
+      var seconds = today.getSeconds();
+      var amPm;
+
+      if (hours < 12) {
+        amPm = "오전 ";
+      } else {
+        amPm = "오후 ";
+        if (hours > 12) {
+          hours = hours - 12;
+        }
+      }
+
+      document.write(
+        "<br>지금은 " +
+          amPm +
+          hours +
+          "시 " +
+          minutes +
+          "분 " +
+          seconds +
+          "초 입니다."
+      );
+
+      document.write("<br>getTime() : " + today.getTime());
+      document.write("<br>toLocaleString() : " + today.toLocaleString());
+      document.write("<br>toGMTString() : " + today.toGMTString());
+    </script>
+  </head>
+  <body></body>
+</html>

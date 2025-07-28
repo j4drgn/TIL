@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>함수 예제2</title>
+    <script type="text/javascript">
+      //함수 블럭에서 함수를 호출 - 함수 호출은 함수 생성 후 어디서든 사용 가능
+      //일반 함수 1 : 호출되면 배경색을 묻고 해당 배경색으로 변경
+      function changeColor() {
+        var color = prompt("색상 입력: red/green/blue");
+        document.write(color + "로 배경색을 바꿉니다.");
+
+        document.bgColor = color;
+      }
+      //일반 함수 2: 배경색을 변경할건지 여부를 묻고 확인 버튼을 클릭하면(true) 배경색 변경 담당 함수를 호출 배경색 변경
+      function start() {
+        var answer = confirm("배경색을 변경하시겠습니까?");
+
+        if (answer) changeColor();
+        else alert("취소하였습니다");
+      }
+
+      start();
+    </script>
+  </head>
+
+  <body>
+    <button onClick="input()">색상 입력</button>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+      var callback = function () {
+        console.log("콜백함수 호출됨.");
+      };
+
+      function show(callback) {
+        //콜백 함수 전달받아서
+        callback();
+      }
+
+      console.log("콜백함수 호출 전");
+      show(callback); //show 함수 호출 하면서 callback 익명함수 인수로 전달
+      console.log("콜백함수 호출 후");
+    </script>
+  </head>
+  <body></body>
+</html>

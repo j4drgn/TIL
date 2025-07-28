@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+      //화살표 함수 선언 방식
+      //function 키워드 대신에 화살표(=>)를 사용하여 보다 간략한 방법으로 함수 선언
+      //모든 경우 사용 가능한 것은 아님
+
+      //문법
+      //() => {함수 코드 블럭} // 매개변수가 없을경우 () 생략 불가능
+      //x => {함수코드 블럭} 매개변수가 한 개인 경우, 소괄호 생략가능
+      //(x,y)=>{함수코드 블럭} 매개변수가 여러개 있는 경우
+
+      //함수 코드 블럭
+      //x => return x * x; 함수 코드 블럭이 한줄 구문인 경우 {} 생략 가능
+
+      let sayHi = () => alert("안녕하세요!"); //화살표 함수 형식을 사용하여 선언한 익명함수
+      let sayHi2 = function () {
+        alert("안녕하세요");
+      };
+
+      sayHi();
+
+      //화살표 함수를 콜백함수로 전달받은 forEach메서드(함수)의 사용 예제
+      let number = [1, 2, 3, 4, 5];
+      number.forEach((x) => {
+        console.log(x * 2);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

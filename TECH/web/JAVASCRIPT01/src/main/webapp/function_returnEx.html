@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script type="text/javascript">
+      function start() {
+        if (confirm("성적을 입력하시겠습니까?")) {
+          alert("평균 점수: " + input());
+        } else {
+          alert("종료합니다");
+        }
+      }
+
+      function input() {
+        const korean = parseInt(prompt("국어 점수를 입력하세요."));
+        const english = parseInt(prompt("영어 점수를 입력하세요."));
+        const math = parseInt(prompt("수학 점수를 입력하세요."));
+
+        avg = (korean + english + math) / 3;
+        return avg.toFixed(2);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="start()">성적 입력</button>
+  </body>
+</html>

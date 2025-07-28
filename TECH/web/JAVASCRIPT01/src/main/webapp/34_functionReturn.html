@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>함수의 반환 값</title>
+    <script type="text/javascript">
+      //숫자 2개를 입력 받아서 두 수의 합을 구하여 반환하는 함수
+      function input() {
+        a = 10;
+        return;
+        b = 10;
+      }
+      function input2() {
+        a = 10;
+        return a;
+      }
+
+      //   input2(); //input2 함수가 return문이 있으므로 변환값 a 변수에 저장된 값이 호출 코드로 대신 들어옴.
+
+      function sum() {
+        var num1 = Number(prompt("숫자 1 입력 : "));
+        var num2 = Number(prompt("숫자 2 입력 : "));
+
+        return num1 + num2;
+      }
+
+      document.write("합계 : " + sum());
+    </script>
+  </head>
+
+  <body></body>
+</html>

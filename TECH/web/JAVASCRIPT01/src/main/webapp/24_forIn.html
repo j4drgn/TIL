@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>for in 예제</title>
+    <script type="text/javascript">
+      var fruits = ["사과", "포도", "복숭아"]; //배열 선언 및 초기화
+
+      for (var i in fruits) {
+        document.write("fruits[" + i + "] = " + fruits[i] + "<br>");
+      }
+
+      var arr = ["사과", "배", "포도", "복숭아"];
+      arr.forEach(function (item, index, fruit) {
+        console.log(item, index, fruit);
+      });
+
+      arr.forEach(function (a, b, c) {
+        console.log(a, b, c);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

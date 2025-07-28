@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>substring()</title>
+    <script type="text/javascript">
+      //String.substring(start,end);
+      //start 인덱스 위치부터 end-1 인덱스 위치까지의 문자열 반환-idx 0부터 시작
+
+      var birth = prompt("생년월일 입력 (예 : 19980125)");
+
+      var year = birth.substring(0, 4);
+      var month = birth.substring(4, 6);
+      var date = birth.substring(6, 8);
+
+      document.write(
+        year + " 년 " + month + " 월 " + date + " 일에 태어나셨군요"
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

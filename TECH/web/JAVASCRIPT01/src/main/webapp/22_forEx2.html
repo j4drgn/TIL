@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <style>
+      th {
+        background-color: #ff0;
+      }
+      td {
+        width: 100px;
+        text-align: center;
+      }
+    </style>
+    <script type="text/javascript">
+      var sum = 0;
+
+      document.write('<table border="1"/>');
+      document.write("<tr><th>i</th><th>sum</th></tr>");
+      for (var i = 1; i <= 10; i++) {
+        sum += i;
+        document.write("<tr><td>" + i + "</td><td>" + sum + "</td></tr>");
+      }
+      document.write("</table>");
+    </script>
+  </head>
+  <body></body>
+</html>

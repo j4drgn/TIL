@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>익명함수</title>
+    <script type="text/javascript">
+      //익명함수 변수에 함수 코드 저장해서 구현 -> 호이스팅 불가능
+      var sum = function (a, b) {
+        document.write(a + b);
+      };
+
+      // 익명함수의 사용 -> 변수를 활용해서 사용(변수명을 함수명처럼 사용)
+      sum(10, 20);
+
+      //익명함수 코드로 다른 익명함수 생성 가능
+      //익명함수 코드가 저장된 변수를 다른 변수에 대입
+      var add = sum;
+      add(100, 200);
+      sum(100, 200);
+
+      //   자바스크립트 익명함수는 호이스팅 불가능
+      sum2(10, 20);
+
+      var sum = function (a, b) {
+        document.write(a + b);
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Array 객체</title>
+    <script type="text/javascript">
+      // var fruits = ["사과", "복숭아", "포도"]; // 결과 동일
+      var fruits = new Array("사과", "복숭아", "포도");
+      document.write("모든 요소 출력 : ");
+      for (i = 0; i < fruits.length; i++) {
+        document.write(fruits[i], " ");
+      }
+
+      //첫번째 요소 공간을 삭제하고 나머지 요소들이 shift 됨.
+      fruits.shift;
+      document.write("<br> shift() : 첫 번째 요소 제거 -  ");
+      for (var i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + " ");
+      }
+
+      fruits.unshift("배");
+      document.write("<br> unshift() : 맨 앞에 요소(배) 추가 -  ");
+      for (var i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + " ");
+      }
+
+      fruits.pop();
+      document.write("<br> pop() : 마지막 요소(포도) 제거 -  ");
+      for (var i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + " ");
+      }
+
+      fruits.push("딸기", "수박");
+      document.write("<br> push() : 마지막에 요소(딸기, 수박) 추가 -  ");
+      for (var i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + " ");
+      }
+
+      fruits.reverse();
+      document.write(
+        "<br> reverse() : 역순으로 변경 - 배열의 원본의 순서가 바뀜  "
+      );
+      for (var i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + " ");
+      }
+
+      fruits.sort();
+      document.write(
+        "<br> sort() : 오름차순 정렬 -  정렬된 결과로 배열의 순서가 바뀜"
+      );
+      for (var i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + " ");
+      }
+
+      fruits.splice(2, 1, "망고", "오렌지");
+      document.write(
+        "<br> splice() : [2]위치 요소 1개(복숭아) 삭제하고  '망고 오렌지' 추가  -  "
+      );
+      for (var i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + " ");
+      }
+
+      var newFruits = fruits.slice(1, 4);
+      document.write("<br> slice() : [1] ~[3] 요소 추출하여 배열 생성  -  ");
+      for (var i = 0; i < newFruits.length; i++) {
+        document.write(newFruits[i] + " ");
+      }
+
+      var newFruits2 = fruits.slice(0, fruits);
+      document.write("<br> slice() : [1] ~[3] 요소 추출하여 배열 생성  -  ");
+      for (var i = 0; i < newFruits2.length; i++) {
+        document.write(newFruits2[i] + " ");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

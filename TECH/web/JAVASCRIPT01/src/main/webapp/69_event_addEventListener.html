@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>addEventListener()</title>
+    <script type="text/javascript">
+      window.onload = function () {
+        var greenBtn = document.getElementById("greenBtn"); //버튼참고
+        var redBtn = document.getElementById("redBtn");
+        var h2 = document.getElementById("h2"); //h2 태그 참고
+
+        //리스너 고전 방식 이벤트 핸들러 처리 - 익명 함수 전달
+        greenBtn.addEventListener("click", function () {
+          h2.style.color = "green";
+        });
+
+        //리스너 고전 방식 이벤트 핸들러 처리 - 화살표 함수 전달
+        redBtn.addEventListener("click", () => {
+          h2.style.color = "red";
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <h2 id="h2">색상 변경되는 글자2</h2>
+    <button id="greenBtn">green</button>
+    <button id="redBtn">red</button>
+  </body>
+</html>

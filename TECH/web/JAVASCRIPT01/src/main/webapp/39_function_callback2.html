@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script type="text/javascript">
+      //일반 함수 생성
+      function endFunction() {
+        console.log("종료");
+      }
+
+      //일반 함수 정의 (매개 변수 2개)
+      function showName(name, func) {
+        console.log("name : ", name);
+        func(); //함수 호출 형식 코드이므로 func 매개변수는 콜백함수가 전달되어야함.
+      }
+
+      showName("성춘향", endFunction);
+      //일반 함수를 활용해 콜백함수로 전달 -> 함수명만 전달 -> 콜백함수로 함수 코드가 전달
+      showName("성충향", endFunction());
+      //endfunction() 호출 후에 showname 호출 -> showname 함수 두번째 매개변수()에 잘못된 값이 전달 에러 발생
+    </script>
+  </head>
+  <body></body>
+</html>

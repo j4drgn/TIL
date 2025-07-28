@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script type="text/javascript">
+      var inputId = prompt("아이디 입력");
+      var inputPwd = prompt("비밀번호 입력");
+      var Ex = "서울";
+      var id = "abcd";
+      var pwd = "1234";
+
+      if (id == inputId && pwd == inputPwd) {
+        alert(id + "님 반갑습니다.");
+
+        var answer = prompt("대한민국의 수도는?");
+        if (answer == Ex) {
+          document.write("정답입니다.");
+        } else {
+          document.write("틀렸습니다. 대한민국의 수도는 서울입니다.");
+        }
+      } else {
+        alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+        document.write("종료합니다.");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

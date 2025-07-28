@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>split()</title>
+    <script type="text/javascript">
+      //String.split("기준문자") -> 기준 문자를 기준으로 앞뒤로 문자열 분할한 후 배열에 순서대로 저장한 후 반환하는 함수
+      var birthday = prompt("생년월일 입력 (예 : 1998-01-25)");
+
+      var birth = birthday.split("-");
+      var year = birth[0];
+      var month = birth[1];
+      var date = birth[2];
+
+      document.write(year + " 년 " + month + " 월 " + date + " 일");
+    </script>
+  </head>
+  <body></body>
+</html>

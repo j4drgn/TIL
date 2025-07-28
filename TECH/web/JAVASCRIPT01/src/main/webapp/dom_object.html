@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>setIntervalEx1</title>
+    <script type="text/javascript">
+      // //script코드 요소가 생성되기도 전에 실행되어 버림.
+      // var box = document.getElementById("box");
+      // //태그의 id 속성값이 box인 태그 값을 찾아서 참조값을 변환해줌 - 현재는 반환값 없음.
+      // box.innerHTML = "변경"; //현재 위치가 body태그도 생성되기 전 시점
+    </script>
+  </head>
+  <body>
+    <div id="box">box</div>
+    <script type="text/javascript">
+      var box = document.getElementById("box");
+      //태그의 id 속성값이 box인 태그 값을 찾아서 참조값을 반환해줌
+      box.innerHTML = "변경";
+      //id 값이 box인 div 태그가 생성된 이후이므로 반환된 참조값을 활용해서 태그요소 속성 변경 가능
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>querySelectorAll()</title>
+    <script type="text/javascript">
+      window.onload = function () {
+        //인수로 전달된 조건에 맞는 태그 모두 찾아서 모두 반환 - 여러 요소가 반환 됨(배열 형태로 반환됨.)
+        //querySelector를 활용해 특정 id나 특정 class의 객체 참조를 얻고자 하면 조건을 기호로 사용 가능
+        //#id, .class
+        var header = document.querySelectorAll("h3,#h1Id2,.h2Class2");
+        //h1 태그의 참조값 반환
+
+        //header 배열 변수로 생성됨
+        //문서 객체 속성 변경 - 배열 순회하면서 참조되는 요소에 대해서 변경
+        for (var i = 0; i < header.length; i++) {
+          var header_item = header[i];
+          header_item.style.color = "orange";
+          header_item.style.background = "red";
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Header</h1>
+    <h1>Header</h1>
+    <h1>Header</h1>
+    <h1 id="h1Id1">Header</h1>
+    <h1 id="h1Id2">H1Id2</h1>
+    <h2 class="h2Class1">Header</h2>
+    <h2 class="h2Class1">Header</h2>
+    <h2 class="h2Class2">H2Class2</h2>
+    <h2 class="h2Class2">H2Class2</h2>
+    <h3>h3</h3>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script type="text/javascript">
+      var names = new Array(4);
+
+      for (var i = 0; i < names.length; i++) {
+        names[i] = prompt("학생 " + i + " 입력");
+      }
+
+      document.write("<table border='1' style='text-align:center;'>");
+      document.write("<tr>"); // 제목 행
+
+      for (var i = 0; i < names.length; i++) {
+        document.write("<td>" + (i + 1) + "</td>"); // 번호
+        document.write("<td>" + names[i] + "</td>"); // 이름
+        document.write("</tr>");
+      }
+    </script>
+    <style>
+      tr {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

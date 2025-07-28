@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>setTimeout() 예제</title>
+    <script type="text/javascript">
+      function openInfo() {
+        win = window.open("msgWindow.html", "setTimeout", "widht=50,height=50");
+      }
+
+      function showMsg() {
+        document.write(
+          "로드하자마자 열린 공지사항 참여<br>3초 후에 자동으로 닫혔습니다."
+        );
+      }
+    </script>
+  </head>
+  <body onload="openInfo()" onFocus="showMsg()">
+    부모창입니다.
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>addEventListener()</title>
+    <script type="text/javascript">
+      window.onload = function () {
+        var box = document.getElementById("box");
+
+        box.addEventListener("mousedown", () => {
+          box.style.backgroundColor = "green";
+        });
+
+        box.addEventListener("mouseup", () => {
+          box.style.backgroundColor = "white";
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div id="box">클릭</div>
+  </body>
+</html>

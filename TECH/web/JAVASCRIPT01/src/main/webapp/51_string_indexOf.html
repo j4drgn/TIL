@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>indexOf</title>
+    <script type="text/javascript">
+      //String.indexOf("문자") -> 문자열에 전달된 문자가 있으면 해당 문자의 idx를 반환
+      //단, 문자가 문자열에서 2번 이상 나타나면 첫번째 만난 문자열의 위치를 반환
+      //문자가 문자열에 없으면 -1 반환
+
+      //기본 이메일 형식이 맞는지의 여부 확인
+      //@ . 문자가 있는지
+      // .이 @뒤에 있는지
+      var email = prompt("이메일 입력");
+
+      //   if (email.indexOf("@") == -1) alert("이메일 형식이 아닙니다.");
+      //   if (email.indexOf(".") == -1) alert("이메일 형식이 아닙니다.");
+      //   if (email.indexOf("@") > email.indexOf("."))
+      //     alert("이메일 형식이 아닙니다.");
+
+      if (
+        email.indexOf("@") == -1 ||
+        email.indexof(".") == -1 ||
+        email.indexOf("@") > email.indexOf(".")
+      )
+        document.write("입력한 email : " + email);
+    </script>
+  </head>
+  <body></body>
+</html>

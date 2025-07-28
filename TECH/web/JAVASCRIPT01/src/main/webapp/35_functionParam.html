@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>함수 매개변수</title>
+    <script type="text/javascript">
+      function calInterest(deposit, rate) {
+        var interest = (deposit * rate) / 100;
+        return interest;
+      }
+
+      function input() {
+        var deposit = parseInt(prompt("예금액 입력"));
+        var rate = Number(prompt("이자율 입력"));
+
+        document.write("예금이자:" + calInterest(deposit, rate));
+      }
+    </script>
+  </head>
+  <body onLoad="input()"></body>
+</html>

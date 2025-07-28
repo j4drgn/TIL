@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>window.open()2</title>
+    <script type="text/javascript">
+      //이미 만들어진 문서를 새로운 창으로 열기
+      function showBigImage() {
+        window.open("bigImage.html", "bigWin", "width=699, height=800, top=50");
+      }
+
+      //새로운 창 만들어서 열기 동적으로 생성된 창에 동적 태그를 생성해서 표현
+      //문자열과 버튼 출력 / 버튼 클릭 시 창 닫기
+      function openNewWindow() {
+        var createWin = window.open("", "createwin", "width=400,height=150"); //창이 생성되면 핸들 객체 반환
+        //createWin 참조변수를 활용해서 새로 만들어진 창에 다른 명령이 가능
+        createWin.document.write("createwin 이름으로 새로만든 창 입니다.");
+        createWin.document.write(
+          "<p><button onClick='window.close()'>닫기</button></p>"
+        );
+      } //동적으로 창과 동적태그를 반영
+    </script>
+  </head>
+  <body>
+    <button onClick="showBigImage()">Big Image 열기</button>
+    <button onClick="openNewWindow()">새창 열기</button>
+  </body>
+</html>

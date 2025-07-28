@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>마우스 이벤트</title>
+    <script type="text/javascript">
+      window.onload = function () {
+        var birdImg = document.getElementById("birdImg");
+
+        //객체로 마우스 포인터가 진입하는 경우 발생
+        birdImg.onmouseover = function () {
+          birdImg.style.opacity = 0.5;
+        };
+        //객체에서 마우스 포인터가 벗어나는 경우
+        birdImg.onmouseout = function () {
+          birdImg.style.opacity = 1;
+        };
+      };
+
+      //문서 상에서 오른쪽 마우스 버튼을 클릭했을 때
+      document.oncontextmenu = function () {
+        alert("마우스 오른쪽 버튼 사용을 금지합니다.");
+        return false; //단축 메뉴 출력 제거 코드 없으면 경고창 출력되고 단축 메뉴가 출력됨.
+      };
+
+      // 문서 상에서 오른쪽 마우스 클릭했을 때 이벤트 처리 : contextmenu
+    </script>
+  </head>
+  <body>
+    <img id="birdImg" src="image/bird.jpg" />
+  </body>
+</html>

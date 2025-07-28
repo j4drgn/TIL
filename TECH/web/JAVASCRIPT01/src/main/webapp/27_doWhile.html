@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>do~while 문</title>
+    <script type="text/javascript">
+      //경고창을 일단 한번 출력하고 그 뒤 출력은 사용자 선택에 따라 진행
+      var count = 0;
+      var answer;
+
+      do {
+        count++;
+        alert("경고 : " + count);
+        answer = confirm("계속 경고창을 보시겠습니까?");
+      } while (answer);
+
+      document.write("경고창 출력 횟수 : " + count);
+    </script>
+  </head>
+  <body></body>
+</html>

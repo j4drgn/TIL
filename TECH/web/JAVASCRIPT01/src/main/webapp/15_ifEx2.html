@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>if문 연습문제2</title>
+    <script type="text/javascript">
+      var inputId = prompt("아이디 입력");
+      var inputPwd = prompt("비밀번호 입력");
+
+      var id = "abcd";
+      var pwd = "1234";
+
+      if (id == inputId && pwd == inputPwd) {
+        document.write("로그인 성공");
+      } else {
+        alert("아이디와 비밀번호가 일치하지 않습니다.");
+        document.write("로그인 실패");
+      }
+
+      if (true) document.write("test, if영역");
+      document.write("test");
+    </script>
+  </head>
+  <body></body>
+</html>

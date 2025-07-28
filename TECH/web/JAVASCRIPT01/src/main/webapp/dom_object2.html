@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>setIntervalEx1</title>
+    <script type="text/javascript">
+      //script코드 html 태그가 생성된 후에 실행되도록 코드 구성
+      //window는 브라우저 창 표현 객체는 load 이벤트를 발생시킴 -> 태그 해석 완료 후 창을 생성하고 표현할 때 발생
+      window.onload = function () {
+        var box = document.getElementById("box");
+        box.innerHTML = "변경";
+      };
+    </script>
+  </head>
+  <body>
+    <div id="box">box</div>
+  </body>
+</html>

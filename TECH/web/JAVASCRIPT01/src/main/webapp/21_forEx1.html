@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>숫자 개수 세기</title>
+    <script type="text/javascript">
+      var positiveCount = 0;
+      var negativeCount = 0;
+      var zeroCount = 0;
+
+      for (var i = 1; i <= 10; i++) {
+        var num = prompt("숫자 " + i + " 입력:");
+
+        num = Number(num);
+
+        if (num > 0) {
+          positiveCount++;
+        } else if (num < 0) {
+          negativeCount++;
+        } else {
+          zeroCount++;
+        }
+      }
+
+      document.write("양수의 개수 : " + positiveCount + "<br>");
+      document.write("음수의 개수 : " + negativeCount + "<br>");
+      document.write("0의 개수 : " + zeroCount + "<br>");
+    </script>
+  </head>
+  <body></body>
+</html>
