@@ -1,10 +1,76 @@
+# 에디터 및 IDE 관련 파일
 .obsidian/
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
 
+# 설정 및 규칙 파일
 *.gitignore
-
-template/
-
-Image/%
-
-# Cursor rules file
 .cursorrules
+.env
+.env.*
+*.pem
+*.key
+config.json
+
+# 임시 폴더 및 파일
+template/
+temp/
+tmp/
+*.tmp
+*.bak
+*.swp
+*.log
+
+# 빌드 및 컴파일 결과물
+build/
+dist/
+out/
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# 의존성 관리 폴더
+node_modules/
+bower_components/
+jspm_packages/
+package-lock.json
+yarn.lock
+.gradle/
+.m2/
+
+# 이미지 및 미디어 파일 (필요시 주석 처리)
+Image/%
+*.mp4
+*.mov
+*.avi
+*.wmv
+
+# 데이터베이스 파일
+*.db
+*.sqlite
+*.sqlite3
+
+# 개인 정보 및 보안 관련 파일
+*password*
+*secret*
+*credential*
+*token*
+*auth*
+*apikey*
+*api_key*
+*private*
+*.pfx
+*.p12
+
+# 기타 불필요한 파일
+.DS_Store
+Thumbs.db
+desktop.ini
