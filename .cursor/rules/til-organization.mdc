@@ -1,0 +1,16 @@
+---
+alwaysApply: true
+---
+
+# TIL (Today I Learned) Repository Organization Rules
+
+## Folder Structure
+
+- Top-level folders are organized by technology category (e.g., TECH, MySQL, etc.)
+- Subfolders are organized by subcategories of the technology (e.g., TECH/Java, TECH/React, etc.)
+- Yearly folders (e.g., 2024, 2025) are for daily learning content
+- Related files should be organized and uploaded in appropriate subdirectories by topic (e.g., Java array-related files should be stored in TECH/Java/arrayType/ directory)
+
+## Response Language Rule
+
+- Always respond in Korean regardless of the language used in this file

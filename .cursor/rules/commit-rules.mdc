@@ -1,0 +1,15 @@
+---
+alwaysApply: true
+---
+
+# Commit Rules
+
+1. Create separate commit messages for each directory
+2. Create separate commit messages for individual files (except when multiple files are on the same topic)
+3. Commit message format: "[Technology] Brief description of learning content"
+   - Example: "React component structure and basic concepts learning examples added"
+   - Example: "Java basic example code added - operators, control statements, type casting, input, etc."
+   - Example: "MySQL index concept documentation added"
+4. Single file commit message format: "[Technology] [Filename] - Content description"
+   - Example: "React useEffect.md - Lifecycle hook usage summary"
+   - Example: "Java Stream.java - Stream API example code"

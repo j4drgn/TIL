@@ -1,0 +1,19 @@
+---
+alwaysApply: true
+---
+
+# File Writing Rules
+
+1. Code examples: Write in executable form
+2. Markdown documents:
+   - Explain key concepts
+   - Include code snippets
+   - Summarize learning content
+
+# README.md Management Rules
+
+1. Each directory should have its own README.md that briefly explains the purpose and content of the directory
+2. Avoid duplicate content between parent and child directory README.md files
+3. Main README.md in a technology directory should provide a comprehensive overview of the topic
+4. Subdirectory README.md files should focus on specific aspects and link back to the parent README.md
+5. Use relative links between README.md files for easy navigation
