@@ -12,6 +12,10 @@
    - [생성자](#생성자)
    - [메서드](#메서드)
    - [this 키워드](#this-키워드)
+   - [static 멤버](#static-멤버)
+   - [final 키워드](#final-키워드)
+   - [싱글톤 패턴](#싱글톤-패턴)
+   - [캡슐화](#캡슐화)
 
 ## 배열
 
@@ -166,6 +170,108 @@ public Book(String t, String au, int p) {
     title = t;
     author = au;
     price = p;
+}
+```
+
+### static 멤버
+
+`static` 키워드는 클래스 레벨의 멤버를 정의할 때 사용됩니다. static 멤버는 객체 생성 없이 클래스 이름으로 직접 접근할 수 있습니다.
+
+```java
+// oopClass/sec11/StaticTest.java 예제
+public class StaticTest {
+    // 인스턴스 멤버
+    int a;
+    void f1(int x) { a = x; }
+    
+    // static 멤버
+    static int b;
+    static void s1(int x) { /* static 메소드는 인스턴스 멤버 사용 불가 */ }
+    static void s3(int x) { b = x; } // static 메소드에서 static 필드 사용 가능
+}
+```
+
+static 블록은 클래스가 로딩될 때 자동으로 실행되는 초기화 블록입니다.
+
+```java
+// oopClass/sec13/StaticBlock.java 예제
+static {
+    // 클래스 로딩 시 실행되는 코드
+    staticA = 10;
+    staticMethod();
+}
+```
+
+### final 키워드
+
+`final` 키워드는 변수, 메서드, 클래스를 상수화할 때 사용됩니다.
+
+```java
+// oopClass/sec15/Person.java 예제
+final String nation = "Korea"; // 상수로 초기화
+final String ssn;  // 생성자에서 초기화할 수 있는 final 필드
+
+public Person(String ssn) {
+    this.ssn = ssn; // 생성자에서 초기화
+}
+```
+
+static final을 함께 사용하면 클래스 상수를 정의할 수 있습니다.
+
+```java
+// oopClass/sec16/Earth.java 예제
+static final double EARTH_RADIUS = 6400;
+static final double EARTH_SURFACE_AREA;
+
+static {
+    EARTH_SURFACE_AREA = 4 * Math.PI * EARTH_RADIUS * EARTH_RADIUS;
+}
+```
+
+### 싱글톤 패턴
+
+싱글톤 패턴은 클래스의 인스턴스가 하나만 생성되도록 보장하는 디자인 패턴입니다.
+
+```java
+// oopClass/sec14/Singleton.java 예제
+public class Singleton {
+    // private static 필드로 자기 자신의 인스턴스를 생성
+    private static Singleton singleton = new Singleton();
+    
+    // private 생성자로 외부에서 인스턴스 생성 방지
+    private Singleton() {}
+    
+    // public static 메서드로 유일한 인스턴스 접근 제공
+    static Singleton getInstance() {
+        return singleton;
+    }
+}
+```
+
+### 캡슐화
+
+캡슐화는 데이터와 해당 데이터를 처리하는 메서드를 하나로 묶고, 외부에서의 접근을 제한하는 것입니다. Getter와 Setter 메서드를 통해 구현합니다.
+
+```java
+// oopClass/sec17/Car.java 예제
+public class Car {
+    // private 필드
+    private int speed;
+    private boolean stop;
+    
+    // Getter 메서드
+    public int getSpeed() {
+        return speed;
+    }
+    
+    // Setter 메서드
+    public void setSpeed(int speed) {
+        if (speed < 0) {
+            this.speed = 0;
+        } else {
+            this.speed = speed;
+        }
+    }
 }
 ```
 

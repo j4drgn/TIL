@@ -14,6 +14,13 @@
 - **sec08**: 생성자 오버로딩 예제 (Car 클래스)
 - **sec09**: this() 메서드 활용 예제 (Book 클래스)
 - **sec10**: 실전 클래스 구현 예제 (Reservation 클래스)
+- **sec11**: static 멤버와 인스턴스 멤버 활용 예제 (StaticTest 클래스)
+- **sec12**: static 멤버로만 구성된 유틸리티 클래스 예제 (Calculator 클래스)
+- **sec13**: static 블록과 인스턴스 블록 활용 예제 (StaticBlock, Share 클래스)
+- **sec14**: 싱글톤 패턴 구현 예제 (Singleton 클래스)
+- **sec15**: final 필드 활용 예제 (Person 클래스)
+- **sec16**: static final 상수 활용 예제 (Earth 클래스)
+- **sec17**: Getter와 Setter 메서드 활용 예제 (Car 클래스)
 
 ## 학습 내용
 
@@ -24,5 +31,9 @@
 3. 생성자와 생성자 오버로딩
 4. 메서드 정의 및 활용
 5. this 키워드의 사용법
+6. static 멤버와 인스턴스 멤버의 차이점
+7. final 키워드와 상수 활용
+8. 싱글톤 패턴 구현 방법
+9. 캡슐화와 Getter/Setter 메서드
 
 자세한 내용은 상위 디렉토리의 [Java 학습 정리](../README.md) 문서를 참조하세요.
