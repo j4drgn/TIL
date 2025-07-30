@@ -183,7 +183,7 @@ public class StaticTest {
     // 인스턴스 멤버
     int a;
     void f1(int x) { a = x; }
-    
+
     // static 멤버
     static int b;
     static void s1(int x) { /* static 메소드는 인스턴스 멤버 사용 불가 */ }
@@ -237,10 +237,10 @@ static {
 public class Singleton {
     // private static 필드로 자기 자신의 인스턴스를 생성
     private static Singleton singleton = new Singleton();
-    
+
     // private 생성자로 외부에서 인스턴스 생성 방지
     private Singleton() {}
-    
+
     // public static 메서드로 유일한 인스턴스 접근 제공
     static Singleton getInstance() {
         return singleton;
@@ -258,12 +258,12 @@ public class Car {
     // private 필드
     private int speed;
     private boolean stop;
-    
+
     // Getter 메서드
     public int getSpeed() {
         return speed;
     }
-    
+
     // Setter 메서드
     public void setSpeed(int speed) {
         if (speed < 0) {
