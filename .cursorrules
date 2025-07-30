@@ -5,7 +5,7 @@
 - Top-level folders are organized by technology category (e.g., TECH, MySQL, etc.)
 - Subfolders are organized by subcategories of the technology (e.g., TECH/Java, TECH/React, etc.)
 - Yearly folders (e.g., 2024, 2025) are for daily learning content
-- 관련 파일들은 주제별로 적절한 하위 디렉토리에 정리하여 업로드 (예: Java 배열 관련 파일들은 TECH/Java/arrayType/ 디렉토리에 저장)
+- Related files should be organized and uploaded in appropriate subdirectories by topic (e.g., Java array-related files should be stored in TECH/Java/arrayType/ directory)
 
 ## Commit Rules
 
@@ -27,6 +27,14 @@
    - Include code snippets
    - Summarize learning content
 
+## README.md Management Rules
+
+1. Each directory should have its own README.md that briefly explains the purpose and content of the directory
+2. Avoid duplicate content between parent and child directory README.md files
+3. Main README.md in a technology directory should provide a comprehensive overview of the topic
+4. Subdirectory README.md files should focus on specific aspects and link back to the parent README.md
+5. Use relative links between README.md files for easy navigation
+
 ## Git Management Rules
 
 1. When adding projects with embedded Git repositories:
@@ -34,6 +42,10 @@
    - Or add as submodules
 2. Add unnecessary build files or temporary files to .gitignore
 3. Do not commit auto-generated README.md files from frameworks like React
+4. Wait for explicit approval before pushing changes to remote repository
+   - Prepare all changes and commits locally first
+   - Show the changes to be pushed
+   - Push only after receiving explicit confirmation
 
 ## Daily Learning Summary
 
