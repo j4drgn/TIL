@@ -17,6 +17,15 @@
    - [super 키워드](#super-키워드)
    - [메소드 오버라이딩](#메소드-오버라이딩)
    - [접근 제한자와 상속](#접근-제한자와-상속)
+4. [인터페이스](#인터페이스)
+   - [인터페이스 정의와 구현](#인터페이스-정의와-구현)
+   - [인터페이스의 활용](#인터페이스의-활용)
+5. [제네릭과 컬렉션 프레임워크](#제네릭과-컬렉션-프레임워크)
+   - [제네릭 클래스와 메소드](#제네릭-클래스와-메소드)
+   - [컬렉션 프레임워크](#컬렉션-프레임워크)
+6. [예외 처리](#예외-처리)
+   - [예외의 종류](#예외의-종류)
+   - [try-catch-finally](#try-catch-finally)
 
 ## 배열
 
@@ -249,3 +258,131 @@ double areaCircle(double r) {
 ### 상속 예제 코드
 
 Java 상속에 관한 다양한 예제는 [inheritance](./inheritance) 디렉토리에서 확인할 수 있습니다. 각 예제는 상속의 기본 개념, 생성자 호출, 메소드 오버라이딩, 접근 제한자 등 상속의 핵심 개념을 다루고 있습니다.
+
+## 인터페이스
+
+인터페이스는 객체의 사용 방법을 정의한 타입으로, 다중 상속과 유사한 기능을 제공합니다.
+
+### 인터페이스 정의와 구현
+
+```java
+// InterfacePkg/sec05/IMemberDAO.java 예제
+public interface IMemberDAO {
+    void insertMember(MemberDTO dto);
+    void deleteMember(String memId);
+    MemberDTO selectMember(String memId);
+    void updateMember(MemberDTO dto);
+    ArrayList<MemberDTO> getAllMember();
+    ArrayList<MemberDTO> getNameMember(String nameStr);
+}
+
+// 인터페이스 구현
+public class MemberDAO implements IMemberDAO {
+    @Override
+    public void insertMember(MemberDTO dto) {
+        // 구현 코드
+    }
+    
+    // 다른 메소드 구현...
+}
+```
+
+### 인터페이스의 활용
+
+인터페이스는 다형성 구현, 표준화, 모듈 간 결합도 감소 등의 목적으로 사용됩니다. 특히 데이터 접근 계층(DAO)에서 많이 활용됩니다.
+
+인터페이스에 관한 자세한 내용은 [InterfacePkg](./InterfacePkg) 디렉토리에서 확인할 수 있습니다.
+
+## 제네릭과 컬렉션 프레임워크
+
+### 제네릭 클래스와 메소드
+
+제네릭은 클래스, 인터페이스, 메소드를 정의할 때 타입을 파라미터로 사용할 수 있게 하는 기능입니다.
+
+```java
+// genericCollection/sec02/Box.java 예제
+public class Box<T> {
+    private T tObj;
+    
+    public void set(T tObj) {
+        this.tObj = tObj;
+    }
+    
+    public T get() {
+        return this.tObj;
+    }
+}
+
+// 제네릭 메소드
+public static <T> Box<T> boxing(T t) {
+    Box<T> box = new Box<>();
+    box.set(t);
+    return box;
+}
+```
+
+### 컬렉션 프레임워크
+
+컬렉션 프레임워크는 데이터를 저장하고 관리하기 위한 클래스들의 집합입니다.
+
+```java
+// ArrayList 예제
+ArrayList<String> list = new ArrayList<>();
+list.add("Java");
+list.add("Python");
+list.add("C++");
+
+// HashMap 예제
+Map<String, Integer> map = new HashMap<>();
+map.put("홍길동", 90);
+map.put("이몽룡", 80);
+
+// HashSet 예제
+Set<String> set = new HashSet<>();
+set.add("JAVA");
+set.add("JDBC");
+set.add("JAVA");  // 중복 객체이므로 저장되지 않음
+```
+
+제네릭과 컬렉션 프레임워크에 관한 자세한 내용은 [genericCollection](./genericCollection) 디렉토리에서 확인할 수 있습니다.
+
+## 예외 처리
+
+### 예외의 종류
+
+Java에서 예외는 크게 두 가지로 나뉩니다:
+
+1. **일반 예외 (Checked Exception)**
+   - 컴파일러가 예외 처리 코드 여부를 검사하는 예외
+   - 예: IOException, ClassNotFoundException
+
+2. **실행 예외 (Unchecked Exception, Runtime Exception)**
+   - 컴파일러가 예외 처리 코드 여부를 검사하지 않는 예외
+   - 예: NullPointerException, ArrayIndexOutOfBoundsException
+
+```java
+// oopException/sec01/NullPointerExceptionEx.java 예제
+String data = null;
+System.out.println(data.toString()); // NullPointerException 발생
+```
+
+### try-catch-finally
+
+예외 처리는 주로 try-catch-finally 블록을 사용합니다:
+
+```java
+// oopException/sec02/TryCatchEx.java 예제
+try {
+    // 예외 발생 가능 코드
+    int[] arr = {1, 2, 3};
+    System.out.println(arr[5]); // 예외 발생
+} catch (ArrayIndexOutOfBoundsException e) {
+    // 예외 처리 코드
+    System.out.println("배열 인덱스가 범위를 벗어났습니다.");
+} finally {
+    // 항상 실행되는 코드
+    System.out.println("프로그램 종료");
+}
+```
+
+예외 처리에 관한 자세한 내용은 [oopException](./oopException) 디렉토리에서 확인할 수 있습니다.
