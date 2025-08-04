@@ -48,6 +48,34 @@
 - [Product.java](./sec08/Product.java): 제품 클래스
 - [ProductMain.java](./sec08/ProductMain.java): LinkedList를 활용한 제품 관리 예제
 
+#### sec09 - Vector
+- [Board.java](./sec09/Board.java): 게시글 클래스
+- [VetorBoarMain.java](./sec09/VetorBoarMain.java): Vector를 활용한 게시글 관리 예제
+
+#### sec11 - HashSet 기본
+- [HashSetStringEx.java](./sec11/HashSetStringEx.java): HashSet을 활용한 문자열 중복 제거 예제
+
+#### sec12 - HashSet과 객체 동등성
+- [Member.java](./sec12/Member.java): 기본 회원 클래스
+- [Member2.java](./sec12/Member2.java): hashCode()와 equals() 메소드를 재정의한 회원 클래스
+- [HashSetMain.java](./sec12/HashSetMain.java): 객체 동등성 비교 예제
+
+#### sec13 - HashMap 기본
+- [HashMapEx.java](./sec13/HashMapEx.java): HashMap 기본 사용법 예제
+
+#### sec14 - HashMap 활용
+- [HashMapExample.java](./sec14/HashMapExample.java): HashMap을 활용한 영한사전 예제
+
+#### sec15 - HashMap과 사용자 정의 객체
+- [Student.java](./sec15/Student.java): 학생 클래스
+- [HashMapStudent.java](./sec15/HashMapStudent.java): 학생 객체를 키로 사용하는 HashMap 예제
+
+#### sec16 - Hashtable
+- [HashTableEx.java](./sec16/HashTableEx.java): Hashtable을 활용한 로그인 예제
+
+#### 컬렉션 정렬
+- [SortCollection.java](./SortCollection.java): Collections 클래스의 sort()와 reverse() 메소드 활용 예제
+
 ## 컬렉션 프레임워크(Collection Framework)
 
 컬렉션 프레임워크는 데이터를 저장하고 관리하기 위한 클래스들의 집합입니다.
@@ -62,3 +90,6 @@
 - LinkedList: 노드 기반의 양방향 연결 리스트
 - HashSet: 해시 알고리즘을 사용하는 Set 구현체
 - HashMap: 해시 알고리즘을 사용하는 Map 구현체
+- Vector: 스레드 안전한 ArrayList
+- Hashtable: 스레드 안전한 HashMap
+- LinkedHashMap: 입력 순서를 유지하는 HashMap
