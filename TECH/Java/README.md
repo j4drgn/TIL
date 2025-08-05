@@ -23,9 +23,12 @@
 5. [제네릭과 컬렉션 프레임워크](#제네릭과-컬렉션-프레임워크)
    - [제네릭 클래스와 메소드](#제네릭-클래스와-메소드)
    - [컬렉션 프레임워크](#컬렉션-프레임워크)
-6. [예외 처리](#예외-처리)
+6. [Java API](#java-api)
+   - [String 클래스](#string-클래스)
+7. [예외 처리](#예외-처리)
    - [예외의 종류](#예외의-종류)
    - [try-catch-finally](#try-catch-finally)
+   - [예외 처리 고급 기법](#예외-처리-고급-기법)
 
 ## 배열
 
@@ -282,7 +285,7 @@ public class MemberDAO implements IMemberDAO {
     public void insertMember(MemberDTO dto) {
         // 구현 코드
     }
-    
+
     // 다른 메소드 구현...
 }
 ```
@@ -303,11 +306,11 @@ public class MemberDAO implements IMemberDAO {
 // genericCollection/sec02/Box.java 예제
 public class Box<T> {
     private T tObj;
-    
+
     public void set(T tObj) {
         this.tObj = tObj;
     }
-    
+
     public T get() {
         return this.tObj;
     }
@@ -346,6 +349,25 @@ set.add("JAVA");  // 중복 객체이므로 저장되지 않음
 
 제네릭과 컬렉션 프레임워크에 관한 자세한 내용은 [genericCollection](./genericCollection) 디렉토리에서 확인할 수 있습니다.
 
+## Java API
+
+Java API는 Java 프로그래밍 언어에서 제공하는 클래스 라이브러리로, 다양한 기능을 구현하는 데 필요한 클래스와 인터페이스를 포함하고 있습니다.
+
+### String 클래스
+
+String 클래스는 문자열을 다루기 위한 다양한 메서드를 제공합니다.
+
+```java
+// oopApi/StringAPI.java 예제
+String title = "자바 프로그래밍";
+System.out.println(title.indexOf("프로그래밍")); // 인덱스 위치 3부터 시작
+System.out.println(title.replace("자바", "Java")); // 문자열 찾아 대체
+System.out.println(title.substring(3)); // 3번 인덱스부터 끝까지 추출
+System.out.println(title.split(" ")[0]); // 주어진 기준 문자로 분리
+```
+
+Java API에 관한 자세한 내용은 [oopApi](./oopApi) 디렉토리에서 확인할 수 있습니다.
+
 ## 예외 처리
 
 ### 예외의 종류
@@ -353,6 +375,7 @@ set.add("JAVA");  // 중복 객체이므로 저장되지 않음
 Java에서 예외는 크게 두 가지로 나뉩니다:
 
 1. **일반 예외 (Checked Exception)**
+
    - 컴파일러가 예외 처리 코드 여부를 검사하는 예외
    - 예: IOException, ClassNotFoundException
 
@@ -382,6 +405,37 @@ try {
 } finally {
     // 항상 실행되는 코드
     System.out.println("프로그램 종료");
+}
+```
+
+### 예외 처리 고급 기법
+
+```java
+// oopException/sec03/CacthOrderEx.java 예제
+try {
+    // 예외 발생 가능 코드
+} catch (NumberFormatException e) {
+    // 구체적인 예외 처리
+} catch (Exception e) {
+    // 모든 예외 처리
+}
+
+// oopException/sec04/MultiCatch.java 예제
+try {
+    // 예외 발생 가능 코드
+} catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
+    // 여러 예외를 동일하게 처리
+}
+
+// oopException/sec05/Throws.java 예제
+public void method() throws ClassNotFoundException {
+    // 예외를 호출한 곳으로 떠넘기기
+}
+
+// oopException/sec06/BalanceInsufficientException.java 예제
+// 사용자 정의 예외 클래스 생성
+public class BalanceInsufficientException extends Exception {
+    // 사용자 정의 예외 구현
 }
 ```
 
