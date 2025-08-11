@@ -36,10 +36,30 @@
   - DELETE 구문: 테이블의 행 삭제
 
 - **[05_DML_select.sql](./05_DML_select.sql)**: 데이터 조회 관련 SQL 문법
+
   - SELECT 구문 기본 사용법
   - WHERE 절을 이용한 조건 검색
   - ORDER BY를 이용한 정렬
   - 집계 함수(SUM, AVG, COUNT, MAX, MIN) 사용법
+  - GROUP BY와 HAVING 절 활용
+
+- **[06_DML_createSelect.sql](./06_DML_createSelect.sql)**: SELECT를 활용한 테이블 생성 및 데이터 복사
+
+  - CREATE TABLE ... AS SELECT 구문
+  - 테이블 복사 및 제약조건 추가
+  - 빈 테이블에 데이터 삽입
+
+- **[07_DML_join.sql](./07_DML_join.sql)**: 테이블 조인 관련 SQL 문법
+
+  - INNER JOIN: 두 테이블의 공통 데이터만 조회
+  - OUTER JOIN: LEFT, RIGHT, FULL OUTER JOIN
+  - 다중 테이블 조인
+  - 조인 결과를 활용한 가공 필드 생성
+
+- **[08_DML_subQuery.sql](./08_DML_subQuery.sql)**: 서브쿼리 관련 SQL 문법
+  - 단일행 서브쿼리: 비교 연산자(=, >, <) 사용
+  - 다중행 서브쿼리: IN, ANY, ALL, EXISTS 연산자 활용
+  - 조인과 서브쿼리 성능 비교
 
 ### 3. 종합 예제 파일
 
@@ -66,6 +86,22 @@
 - ORDER BY: 결과 정렬
 - 집계 함수: 데이터 집계 및 통계 처리
 - LIKE: 패턴 매칭을 통한 검색
+- GROUP BY: 특정 열 기준으로 그룹화
+- HAVING: 그룹화된 데이터에 조건 적용
+
+#### JOIN 문 주요 기능
+
+- INNER JOIN: 두 테이블의 공통 데이터만 조회
+- OUTER JOIN: 공통 데이터가 없는 행도 포함하여 조회
+  - LEFT OUTER JOIN: 왼쪽 테이블의 모든 행 포함
+  - RIGHT OUTER JOIN: 오른쪽 테이블의 모든 행 포함
+  - FULL OUTER JOIN: 양쪽 테이블의 모든 행 포함
+
+#### 서브쿼리(SubQuery)
+
+- 단일행 서브쿼리: 하나의 행만 반환하는 서브쿼리
+- 다중행 서브쿼리: 여러 행을 반환하는 서브쿼리
+- 서브쿼리 연산자: IN, ANY, ALL, EXISTS
 
 ### 제약조건
 
