@@ -1,0 +1,49 @@
+-- 1.호날두(고객명)가 주문한 도서의 총 구매량 출력
+SELECT SUM(BSQTY) AS "호날두 총 구매량"
+FROM BOOKSALE
+WHERE CLIENTNO = (
+    SELECT CLIENTNO
+    FROM CLIENT
+    WHERE CLIENTNAME = '호날두'
+);
+
+-- 2.'정보출판사'에서 출간한 도서를 구매한 적이 있는 고객명 출력
+SELECT DISTINCT C.CLIENTNAME
+FROM CLIENT C
+WHERE C.CLIENTNO IN (
+    SELECT BS.CLIENTNO
+    FROM BOOKSALE BS
+    WHERE BS.BOOKNO IN (
+        SELECT B.BOOKNO
+        FROM BOOK B
+        WHERE B.PUBNO = (
+            SELECT P.PUBNO
+            FROM PUBLISHER P
+            WHERE P.PUBNAME = '정보출판사'
+        )
+    )
+);
+
+-- 3.베컴이 주문한 도서의 최고 주문수량 보다 더 많은 도서를 구매한 고객명 출력
+SELECT DISTINCT C.CLIENTNAME
+FROM CLIENT C
+JOIN BOOKSALE BS ON C.CLIENTNO = BS.CLIENTNO
+WHERE BS.BSQTY > ALL (
+    SELECT BS2.BSQTY
+    FROM BOOKSALE BS2
+    WHERE BS2.CLIENTNO = (
+        SELECT C2.CLIENTNO
+        FROM CLIENT C2
+        WHERE C2.CLIENTNAME = '베컴'
+    )
+)
+AND C.CLIENTNAME != '베컴';
+
+-- 4.천안에 거주하는 고객에게 판매한 도서의 총 판매량 출력
+SELECT SUM(BS.BSQTY) AS "천안 고객 총 판매량"
+FROM BOOKSALE BS
+WHERE BS.CLIENTNO IN (
+    SELECT C.CLIENTNO
+    FROM CLIENT C
+    WHERE C.CLIENTADDRESS LIKE '%천안%'
+);

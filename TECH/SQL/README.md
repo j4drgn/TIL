@@ -61,14 +61,21 @@
   - 다중행 서브쿼리: IN, ANY, ALL, EXISTS 연산자 활용
   - 조인과 서브쿼리 성능 비교
 
+- **[09_ORACLE_BuiltinFunction.sql](./09_ORACLE_BuiltinFunction.sql)**: Oracle 내장 함수 관련 SQL 문법
+  - 수학 함수: ROUND 등
+  - 문자 함수: REPLACE, LENGTH, SUBSTR, CONCAT 등
+  - 순위 출력 함수: RANK, DENSE_RANK, ROW_NUMBER
+  - 그룹 함수: ROLLUP, CUBE, GROUPING SETS
+  - PIVOT 함수: 행-열 변환
+  - 날짜 함수: SYSDATE, ADD_MONTHS, EXTRACT 등
+
 ### 3. 종합 예제 파일
 
 - **[SQL_Complete_Examples.sql](./SQL_Complete_Examples.sql)**: SQL 종합 연습 문제 및 예제
-  - ALTER 문 연습 문제
-  - INSERT 문 연습 문제
-  - UPDATE/DELETE 문 연습 문제
-  - 테이블 관계 설정 및 데이터 조작 종합 예제
-  - SELECT 문 다양한 조건 활용 예제
+- **Ex 디렉토리**: 일자별 SQL 실습 예제
+  - **[SQL_Examples_0808.sql](./Ex/SQL_Examples_0808.sql)**: 8월 8일 SQL 실습 예제
+  - **[SQL_Examples_0811.sql](./Ex/SQL_Examples_0811.sql)**: 8월 11일 SQL 실습 예제
+  - **[SQL_Examples_0812.sql](./Ex/SQL_Examples_0812.sql)**: 8월 12일 SQL 실습 예제 (서브쿼리 활용)
 
 ## 학습 내용 요약
 
