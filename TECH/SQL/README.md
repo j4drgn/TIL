@@ -71,7 +71,6 @@
 
 ### 3. 종합 예제 파일
 
-- **[SQL_Complete_Examples.sql](./SQL_Complete_Examples.sql)**: SQL 종합 연습 문제 및 예제
 - **Ex 디렉토리**: 일자별 SQL 실습 예제
   - **[SQL_Examples_0808.sql](./Ex/SQL_Examples_0808.sql)**: 8월 8일 SQL 실습 예제
   - **[SQL_Examples_0811.sql](./Ex/SQL_Examples_0811.sql)**: 8월 11일 SQL 실습 예제
