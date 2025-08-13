@@ -32,6 +32,10 @@
    - [예외의 종류](#예외의-종류)
    - [try-catch-finally](#try-catch-finally)
    - [예외 처리 고급 기법](#예외-처리-고급-기법)
+9. [JDBC (Java Database Connectivity)](#jdbc-java-database-connectivity)
+   - [JDBC 개요](#jdbc-개요)
+   - [JDBC 사용 과정](#jdbc-사용-과정)
+   - [주요 클래스 및 인터페이스](#주요-클래스-및-인터페이스)
 
 ## 배열
 
@@ -388,7 +392,7 @@ public static void main(String[] args) {
         toolkit.beep();
         Thread.sleep(500);
     }
-    
+
     // 텍스트 출력
     for (int i = 0; i < 5; i++) {
         System.out.println("띵");
@@ -529,3 +533,71 @@ public class BalanceInsufficientException extends Exception {
 ```
 
 예외 처리에 관한 자세한 내용은 [oopException](./oopException) 디렉토리에서 확인할 수 있습니다.
+
+## JDBC (Java Database Connectivity)
+
+JDBC는 자바 애플리케이션에서 데이터베이스에 접속하여 SQL 문을 실행하고 결과를 처리하기 위한 Java API입니다.
+
+### JDBC 개요
+
+JDBC는 다양한 데이터베이스 시스템에 대해 일관된 인터페이스를 제공하여 데이터베이스 종류에 상관없이 동일한 방식으로 데이터를 처리할 수 있게 합니다.
+
+```java
+// jdbc/sec01/DBTestConn.java 예제
+// JDBC 드라이버 로드
+Class.forName("oracle.jdbc.driver.OracleDriver");
+```
+
+### JDBC 사용 과정
+
+JDBC를 사용한 데이터베이스 연동은 다음과 같은 단계로 진행됩니다:
+
+1. **JDBC 드라이버 로드**: 사용할 데이터베이스의 JDBC 드라이버를 로드합니다.
+2. **데이터베이스 연결**: Connection 객체를 생성하여 데이터베이스에 연결합니다.
+3. **SQL 문 실행 객체 생성**: Statement 또는 PreparedStatement 객체를 생성합니다.
+4. **SQL 문 실행**: 쿼리를 실행하고 결과를 받아옵니다.
+5. **결과 처리**: ResultSet 객체를 통해 조회 결과를 처리합니다.
+6. **자원 해제**: 사용한 자원을 해제합니다.
+
+```java
+// jdbc/sec03/DBConnectMain.java 예제
+// 데이터베이스 연결
+Connection conn = dbCon.getConnection();
+
+// Statement 객체 생성
+Statement stmt = conn.createStatement();
+
+// SQL 문 실행
+String sql = "select * from book order by bookno";
+ResultSet rs = stmt.executeQuery(sql);
+
+// 결과 처리
+while (rs.next()) {
+    String bookNo = rs.getString("BOOKNO");
+    String bookName = rs.getString("BOOKNAME");
+    // 데이터 처리
+}
+
+// 자원 해제
+rs.close();
+stmt.close();
+conn.close();
+```
+
+### 주요 클래스 및 인터페이스
+
+- **Connection**: 데이터베이스 연결을 나타내는 인터페이스
+- **DriverManager**: 데이터베이스 드라이버를 관리하고 연결을 생성하는 클래스
+- **Statement**: SQL 문을 실행하기 위한 인터페이스
+- **PreparedStatement**: 미리 컴파일된 SQL 문을 실행하는 인터페이스 (SQL 인젝션 방지)
+- **ResultSet**: SQL 쿼리 실행 결과를 저장하는 인터페이스
+
+```java
+// jdbc/sec04/ProductMain.java 예제
+// PreparedStatement 사용 예
+PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM product WHERE prdno = ?");
+pstmt.setString(1, "P001");
+ResultSet rs = pstmt.executeQuery();
+```
+
+JDBC에 관한 자세한 내용은 [jdbc](./jdbc) 디렉토리에서 확인할 수 있습니다.
