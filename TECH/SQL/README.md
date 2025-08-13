@@ -57,6 +57,7 @@
   - 조인 결과를 활용한 가공 필드 생성
 
 - **[08_DML_subQuery.sql](./08_DML_subQuery.sql)**: 서브쿼리 관련 SQL 문법
+
   - 단일행 서브쿼리: 비교 연산자(=, >, <) 사용
   - 다중행 서브쿼리: IN, ANY, ALL, EXISTS 연산자 활용
   - 조인과 서브쿼리 성능 비교
@@ -69,7 +70,27 @@
   - PIVOT 함수: 행-열 변환
   - 날짜 함수: SYSDATE, ADD_MONTHS, EXTRACT 등
 
-### 3. 종합 예제 파일
+### 3. DCL(Data Control Language) 관련 파일
+
+- **[10_DCL_commitRollback.sql](./10_DCL_commitRollback.sql)**: 트랜잭션 제어 관련 SQL 문법
+
+  - COMMIT: 트랜잭션 변경사항 데이터베이스에 반영
+  - ROLLBACK: 트랜잭션 변경사항 취소 및 이전 상태로 복원
+  - 트랜잭션 관리 예제
+
+- **[11_DCL_SYSTEM.sql](./11_DCL_SYSTEM.sql)**: 시스템 권한 관리 관련 SQL 문법
+
+  - 사용자 계정 생성/수정/삭제
+  - 권한 및 롤(ROLE) 부여/회수
+  - 테이블스페이스 할당량 관리
+  - 시스템 정보 조회
+
+- **[12_DCL_USER.sql](./12_DCL_USER.sql)**: 사용자 권한 관리 관련 SQL 문법
+  - 객체 권한 부여/회수
+  - 다른 계정의 객체 접근 방법
+  - 사용자 정보 및 권한 조회
+
+### 4. 종합 예제 파일
 
 - **Ex 디렉토리**: 일자별 SQL 실습 예제
   - **[SQL_Examples_0808.sql](./Ex/SQL_Examples_0808.sql)**: 8월 8일 SQL 실습 예제
@@ -85,6 +106,10 @@
 ### DML(Data Manipulation Language)
 
 데이터를 조작하는 언어로, 데이터 입력(INSERT), 수정(UPDATE), 삭제(DELETE), 조회(SELECT) 등의 명령어가 포함됩니다.
+
+### DCL(Data Control Language)
+
+데이터베이스 접근 권한을 제어하는 언어로, 권한 부여(GRANT), 권한 회수(REVOKE), 트랜잭션 제어(COMMIT, ROLLBACK) 등의 명령어가 포함됩니다.
 
 #### SELECT 문 주요 기능
 
