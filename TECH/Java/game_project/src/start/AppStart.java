@@ -87,6 +87,7 @@ public class AppStart {
                 } catch (Exception e) {
                     // 기타 예외 처리
                     System.out.println("오류가 발생했습니다: " + e.getMessage());
+                    e.printStackTrace(); // 디버깅을 위해 스택 트레이스 출력
                     MenuManager.clearInputBuffer(scanner);
                 }
             }
@@ -97,6 +98,7 @@ public class AppStart {
         } catch (Exception e) {
             // 심각한 시스템 오류 처리
             System.out.println("심각한 오류가 발생했습니다: " + e.getMessage());
+            e.printStackTrace(); // 디버깅을 위해 스택 트레이스 출력
             System.out.println("프로그램을 종료합니다.");
         } finally {
             // 리소스 정리
@@ -175,7 +177,6 @@ public class AppStart {
      * 메인 메뉴 선택 처리
      * 
      * 메인 메뉴에서 사용자가 선택한 옵션에 따라 적절한 처리를 수행합니다.
-     * 1: 애플리케이션 정보, 2: 가위바위보 게임, 3: 숫자 맞추기 게임, 4: 로그아웃, 5: 종료
      * 
      * @param scanner 사용자 입력을 위한 Scanner 객체
      * @param choice 사용자가 선택한 메뉴 번호
@@ -201,11 +202,21 @@ public class AppStart {
                 // 숫자 맞추기 게임 실행
                 playGame(scanner, GameFactory.GameType.GUESS);
                 break;
-            case 4: // 로그아웃
+            case 4: // 회원 정보 수정
+                // 회원 정보 수정 처리
+                UserManager.updateUserInfo(scanner, userDAO, userSession);
+                break;
+            case 5: // 회원 탈퇴
+                // 회원 탈퇴 처리
+                if (UserManager.withdrawUser(scanner, userDAO, userSession)) {
+                    System.out.println("회원 탈퇴가 완료되었습니다.");
+                }
+                break;
+            case 6: // 로그아웃
                 // 로그아웃 처리
                 handleLogout();
                 break;
-            case 5: // 종료
+            case 7: // 종료
                 System.out.println("프로그램을 종료합니다!");
                 return true; // 프로그램 종료 신호 반환
             default: // 잘못된 선택

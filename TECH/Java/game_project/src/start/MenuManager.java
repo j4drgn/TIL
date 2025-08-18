@@ -48,8 +48,10 @@ public class MenuManager {
         System.out.println("1. 애플리케이션 정보");
         System.out.println("2. 가위바위보 게임");
         System.out.println("3. 숫자 알아맞히기 게임");
-        System.out.println("4. 로그아웃");
-        System.out.println("5. 종료");
+        System.out.println("4. 회원 정보 수정");
+        System.out.println("5. 회원 탈퇴");
+        System.out.println("6. 로그아웃");
+        System.out.println("7. 종료");
         System.out.println(SUB_DIVIDER);
         System.out.print("메뉴 번호 입력: ");
         return scanner.nextInt();

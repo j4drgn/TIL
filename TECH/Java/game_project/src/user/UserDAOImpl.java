@@ -1,203 +1,280 @@
 package user;
 
+import db.DBConnection;
 import exception.UserException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
- * UserDAO 인터페이스 구현체
- * 
- * 사용자 정보를 메모리 내 컬렉션(HashMap)에 저장하고 관리합니다.
- * 싱글톤 패턴을 적용하여 애플리케이션 전체에서 하나의 인스턴스만 사용합니다.
- * 
- * 주요 기능:
- * - 사용자 정보 저장 및 유효성 검증
- * - ID를 통한 사용자 정보 빠른 조회 (O(1) 시간 복잡도)
- * - 로그인 처리 및 인증
- * - 전체 사용자 목록 조회
+ * 사용자 정보를 데이터베이스에 저장하고 관리하는 클래스
  */
 public class UserDAOImpl implements UserDAO {
-    /** 
-     * 사용자 정보를 저장할 컬렉션 
-     * HashMap을 사용하여 ID 기반 조회 시 O(1) 시간 복잡도로 성능 최적화
-     */
-    private Map<String, UserDTO> userMap;
+    // 싱글톤 인스턴스
+    private static UserDAOImpl instance;
     
-    /** 
-     * 싱글톤 인스턴스 
-     * volatile 키워드를 사용하여 멀티스레드 환경에서 안전하게 접근 가능
-     */
-    private static volatile UserDAOImpl instance;
-    
-    /**
-     * 생성자 (private으로 외부 생성 방지)
-     * 
-     * 싱글톤 패턴 구현을 위해 private으로 선언하여 외부에서 인스턴스 생성을 방지합니다.
-     */
+    // private 생성자
     private UserDAOImpl() {
-        userMap = new HashMap<>();
     }
     
-    /**
-     * UserDAOImpl 인스턴스를 반환 (Thread-safe 싱글톤)
-     * 
-     * 이중 검사 잠금(Double-Checked Locking) 방식을 사용하여
-     * 스레드 안전성을 보장하면서도 성능을 최적화합니다.
-     * 
-     * @return UserDAOImpl 싱글톤 인스턴스
-     */
+    // 인스턴스 반환 메소드
     public static UserDAOImpl getInstance() {
-        // 첫 번째 검사 (락 획득 전)
         if (instance == null) {
-            // 동기화 블록 (멀티스레드 환경에서 한 번에 하나의 스레드만 접근)
-            synchronized (UserDAOImpl.class) {
-                // 두 번째 검사 (락 획득 후)
-                if (instance == null) {
-                    instance = new UserDAOImpl();
-                }
-            }
+            instance = new UserDAOImpl();
         }
         return instance;
     }
 
-    /**
-     * 사용자 정보 저장
-     * 
-     * 새로운 사용자 정보를 검증하고 저장합니다.
-     * 1. 필수 필드 유효성 검증
-     * 2. ID 중복 확인
-     * 3. 사용자 정보 저장
-     * 
-     * @param user 저장할 사용자 정보 (UserDTO 객체)
-     * @return 저장 성공 여부 (true: 성공)
-     * @throws UserException 유효성 검증 실패 또는 저장 중 오류 발생 시
-     */
+    // 사용자 정보 저장
     @Override
     public boolean saveUser(UserDTO user) throws UserException {
         // 필수 필드 검증
-        validateUserFields(user);
-        
-        // ID 중복 확인 (O(1) 시간 복잡도)
-        if (userMap.containsKey(user.getId())) {
-            throw new UserException.DuplicateIdException();
-        }
-        
-        // 사용자 정보 저장
-        try {
-            userMap.put(user.getId(), user);
-            return true;
-        } catch (Exception e) {
-            // 예외 발생 시 래핑하여 상위로 전달
-            throw new UserException.RegistrationFailedException("사용자 정보 저장 중 오류가 발생했습니다: " + e.getMessage());
-        }
-    }
-
-    /**
-     * 사용자 필드 유효성 검증
-     * 
-     * 사용자 객체의 필수 필드(ID, 비밀번호, 이름)가 존재하는지 검증합니다.
-     * 누락된 필드가 있을 경우 예외를 발생시킵니다.
-     * 
-     * @param user 검증할 사용자 정보 (UserDTO 객체)
-     * @throws UserException 사용자 객체가 null이거나 필수 필드가 누락된 경우
-     */
-    private void validateUserFields(UserDTO user) throws UserException {
-        // 사용자 객체 자체가 null인 경우
         if (user == null) {
             throw new UserException("사용자 정보가 없습니다.");
         }
         
-        // ID 필드 검증
         if (user.getId() == null || user.getId().trim().isEmpty()) {
             throw new UserException.RequiredFieldMissingException("아이디");
         }
         
-        // 비밀번호 필드 검증
         if (user.getPassword() == null || user.getPassword().trim().isEmpty()) {
             throw new UserException.RequiredFieldMissingException("비밀번호");
         }
         
-        // 이름 필드 검증
         if (user.getName() == null || user.getName().trim().isEmpty()) {
             throw new UserException.RequiredFieldMissingException("이름");
         }
+        
+        // ID 중복 확인
+        if (findUserById(user.getId()) != null) {
+            throw new UserException.DuplicateIdException();
+        }
+        
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        
+        try {
+            // DB 연결
+            conn = DBConnection.getInstance().getConnection();
+            
+            // SQL 쿼리 작성 및 실행
+            String sql = "INSERT INTO users (username, password, name) VALUES (?, ?, ?)";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, user.getId());
+            pstmt.setString(2, user.getPassword());
+            pstmt.setString(3, user.getName());
+            
+            int result = pstmt.executeUpdate();
+            return result > 0;
+        } catch (SQLException e) {
+            // 예외 발생 시 처리
+            throw new UserException.RegistrationFailedException("DB 오류: " + e.getMessage());
+        } finally {
+            // 리소스 정리
+            DBConnection.closeResources(conn, pstmt, null);
+        }
     }
 
-    /**
-     * 사용자 ID로 사용자 정보 조회
-     * 
-     * 지정된 ID에 해당하는 사용자 정보를 HashMap에서 O(1) 시간 복잡도로 조회합니다.
-     * 
-     * @param id 조회할 사용자 ID
-     * @return 사용자 정보 (UserDTO 객체), 해당 ID의 사용자가 없으면 null 반환
-     */
+    // 사용자 ID로 사용자 정보 조회
     @Override
     public UserDTO findUserById(String id) {
-        // ID가 null이거나 빈 문자열인 경우 null 반환
+        // ID 유효성 검사
         if (id == null || id.trim().isEmpty()) {
             return null;
         }
         
-        // HashMap을 사용하여 O(1) 시간 복잡도로 조회
-        return userMap.get(id);
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        try {
+            // DB 연결
+            conn = DBConnection.getInstance().getConnection();
+            
+            // SQL 쿼리 작성 및 실행
+            String sql = "SELECT * FROM users WHERE username = ? AND status = 'A'";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            
+            // 결과 처리
+            if (rs.next()) {
+                UserDTO user = new UserDTO();
+                user.setId(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setName(rs.getString("name"));
+                return user;
+            }
+        } catch (SQLException e) {
+            // 예외 출력
+            System.out.println("사용자 조회 중 오류 발생: " + e.getMessage());
+        } finally {
+            // 리소스 정리
+            DBConnection.closeResources(conn, pstmt, rs);
+        }
+        
+        return null;
     }
 
-    /**
-     * 로그인 처리
-     * 
-     * 사용자 ID와 비밀번호를 검증하여 로그인을 처리합니다.
-     * 1. 입력값 유효성 검증
-     * 2. 사용자 ID로 사용자 정보 조회
-     * 3. 비밀번호 일치 여부 확인
-     * 
-     * @param id 사용자 ID
-     * @param password 비밀번호
-     * @return 로그인 성공 시 사용자 정보 (UserDTO 객체)
-     * @throws UserException.RequiredFieldMissingException ID 또는 비밀번호가 누락된 경우
-     * @throws UserException.LoginFailedException 로그인 실패 시 (ID 없음 또는 비밀번호 불일치)
-     */
+    // 로그인 처리
     @Override
     public UserDTO login(String id, String password) throws UserException {
-        // ID 유효성 검증
+        // 입력값 검증
         if (id == null || id.trim().isEmpty()) {
             throw new UserException.RequiredFieldMissingException("아이디");
         }
         
-        // 비밀번호 유효성 검증
         if (password == null || password.trim().isEmpty()) {
             throw new UserException.RequiredFieldMissingException("비밀번호");
         }
         
-        // 사용자 조회 (O(1) 시간 복잡도)
-        UserDTO user = findUserById(id);
-        if (user == null) {
-            // ID에 해당하는 사용자가 없는 경우
-            throw new UserException.LoginFailedException();
-        }
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
         
-        // 비밀번호 일치 여부 확인
-        if (!user.getPassword().equals(password)) {
-            // 비밀번호가 일치하지 않는 경우
-            throw new UserException.LoginFailedException();
+        try {
+            // DB 연결
+            conn = DBConnection.getInstance().getConnection();
+            
+            // SQL 쿼리 작성 및 실행
+            String sql = "SELECT * FROM users WHERE username = ? AND password = ? AND status = 'A'";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, id);
+            pstmt.setString(2, password);
+            rs = pstmt.executeQuery();
+            
+            // 결과 처리
+            if (rs.next()) {
+                UserDTO user = new UserDTO();
+                user.setId(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setName(rs.getString("name"));
+                return user;
+            } else {
+                throw new UserException.LoginFailedException();
+            }
+        } catch (SQLException e) {
+            // 예외 발생 시 처리
+            throw new UserException("로그인 처리 중 DB 오류: " + e.getMessage());
+        } finally {
+            // 리소스 정리
+            DBConnection.closeResources(conn, pstmt, rs);
         }
-        
-        // 로그인 성공
-        return user;
     }
 
-    /**
-     * 모든 사용자 목록 조회
-     * 
-     * 시스템에 등록된 모든 사용자 정보를 목록으로 반환합니다.
-     * HashMap의 values()를 ArrayList로 변환하여 반환합니다.
-     * 
-     * @return 사용자 정보 목록 (UserDTO 객체의 List)
-     */
+    // 모든 사용자 목록 조회
     @Override
     public List<UserDTO> getAllUsers() {
-        // Map의 values()를 ArrayList로 변환하여 반환
-        return new ArrayList<>(userMap.values());
+        List<UserDTO> userList = new ArrayList<>();
+        
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        
+        try {
+            // DB 연결
+            conn = DBConnection.getInstance().getConnection();
+            
+            // SQL 쿼리 작성 및 실행
+            String sql = "SELECT * FROM users WHERE status = 'A' ORDER BY id";
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            
+            // 결과 처리
+            while (rs.next()) {
+                UserDTO user = new UserDTO();
+                user.setId(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setName(rs.getString("name"));
+                userList.add(user);
+            }
+        } catch (SQLException e) {
+            // 예외 출력
+            System.out.println("사용자 목록 조회 중 오류 발생: " + e.getMessage());
+        } finally {
+            // 리소스 정리
+            DBConnection.closeResources(conn, pstmt, rs);
+        }
+        
+        return userList;
+    }
+    
+    // 사용자 정보 수정
+    @Override
+    public boolean updateUser(UserDTO user) throws UserException {
+        // 입력값 검증
+        if (user == null) {
+            throw new UserException("사용자 정보가 없습니다.");
+        }
+        
+        if (user.getId() == null || user.getId().trim().isEmpty()) {
+            throw new UserException.RequiredFieldMissingException("아이디");
+        }
+        
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        
+        try {
+            // DB 연결
+            conn = DBConnection.getInstance().getConnection();
+            
+            // 비밀번호만 변경
+            if (user.getPassword() != null && !user.getPassword().trim().isEmpty()) {
+                String sql = "UPDATE users SET password = ? WHERE username = ?";
+                pstmt = conn.prepareStatement(sql);
+                pstmt.setString(1, user.getPassword());
+                pstmt.setString(2, user.getId());
+                
+                System.out.println("비밀번호 변경: " + user.getPassword());
+            } else {
+                // 변경할 내용이 없음
+                System.out.println("변경할 내용이 없습니다.");
+                return false;
+            }
+            
+            int result = pstmt.executeUpdate();
+            return result > 0;
+        } catch (SQLException e) {
+            // 예외 출력 및 전달
+            System.out.println("사용자 정보 수정 중 오류 발생: " + e.getMessage());
+            throw new UserException("사용자 정보 수정 중 오류 발생: " + e.getMessage());
+        } finally {
+            // 리소스 정리
+            DBConnection.closeResources(conn, pstmt, null);
+        }
+    }
+    
+    // 회원 탈퇴 처리
+    @Override
+    public boolean withdrawUser(String id) throws UserException {
+        // 입력값 검증
+        if (id == null || id.trim().isEmpty()) {
+            throw new UserException.RequiredFieldMissingException("아이디");
+        }
+        
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        
+        try {
+            // DB 연결
+            conn = DBConnection.getInstance().getConnection();
+            
+            // SQL 쿼리 작성 및 실행
+            String sql = "UPDATE users SET status = 'D' WHERE username = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, id);
+            
+            int result = pstmt.executeUpdate();
+            return result > 0;
+        } catch (SQLException e) {
+            // 예외 발생 시 처리
+            throw new UserException("회원 탈퇴 처리 중 오류 발생: " + e.getMessage());
+        } finally {
+            // 리소스 정리
+            DBConnection.closeResources(conn, pstmt, null);
+        }
     }
 }

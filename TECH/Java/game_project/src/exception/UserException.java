@@ -5,34 +5,22 @@ package exception;
  */
 public class UserException extends GameException {
     
-    /**
-     * 기본 생성자
-     */
+    // 기본 생성자
     public UserException() {
         super("사용자 처리 중 오류가 발생했습니다.");
     }
     
-    /**
-     * 메시지를 지정하는 생성자
-     * @param message 예외 메시지
-     */
+    // 메시지를 지정하는 생성자
     public UserException(String message) {
         super(message);
     }
     
-    /**
-     * 원인 예외를 지정하는 생성자
-     * @param cause 원인 예외
-     */
+    // 원인 예외를 지정하는 생성자
     public UserException(Throwable cause) {
         super("사용자 처리 중 오류가 발생했습니다.", cause);
     }
     
-    /**
-     * 메시지와 원인 예외를 지정하는 생성자
-     * @param message 예외 메시지
-     * @param cause 원인 예외
-     */
+    // 메시지와 원인 예외를 지정하는 생성자
     public UserException(String message, Throwable cause) {
         super(message, cause);
     }

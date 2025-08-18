@@ -61,4 +61,22 @@ public interface UserDAO {
      * @return 사용자 정보 목록 (UserDTO 객체의 List)
      */
     List<UserDTO> getAllUsers();
+    
+    /**
+     * 사용자 정보 수정
+     * 
+     * @param user 수정할 사용자 정보
+     * @return 수정 성공 여부
+     * @throws UserException 수정 중 오류 발생 시
+     */
+    boolean updateUser(UserDTO user) throws UserException;
+    
+    /**
+     * 회원 탈퇴 처리
+     * 
+     * @param id 탈퇴할 사용자 ID
+     * @return 탈퇴 성공 여부
+     * @throws UserException 탈퇴 처리 중 오류 발생 시
+     */
+    boolean withdrawUser(String id) throws UserException;
 }
