@@ -4,32 +4,37 @@
 
 ## 디렉토리 구조
 
-### 1. [Java](./Java)
+### 1. [Algorithm](./Algorithm)
+
+- 알고리즘 학습 내용
+- XOR 연산, 별 찍기 패턴, 수학 알고리즘, 자료구조 등
+
+### 2. [Java](./Java)
 
 - Java 프로그래밍 언어 학습 내용
 - 기본 문법, 객체지향 프로그래밍, 컬렉션, 예외 처리, 스레드 등
 
-### 2. [Python](./Python)
+### 3. [Python](./Python)
 
 - Python 프로그래밍 언어 학습 내용
 
-### 3. [Pytorch](./Pytorch)
+### 4. [Pytorch](./Pytorch)
 
 - PyTorch 딥러닝 프레임워크 학습 내용
 - 텐서 조작, 데이터 분리, 머신 러닝 워크플로우 등
 
-### 4. [React](./React)
+### 5. [React](./React)
 
 - React 프론트엔드 라이브러리 학습 내용
 - 컴포넌트, 상태 관리, 라우팅, 이벤트 처리, 컨텍스트 API 등
 
-### 5. [SQL](./SQL)
+### 6. [SQL](./SQL)
 
 - SQL 데이터베이스 언어 학습 내용
 - DDL, DML, 테이블 생성/수정/삭제, 데이터 조회/삽입/수정/삭제
 - 조인, 서브쿼리, 그룹화 등
 
-### 6. [web](./web)
+### 7. [web](./web)
 
 - 웹 개발 관련 기술 학습 내용
 - HTML, CSS, JavaScript, jQuery 등
