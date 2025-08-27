@@ -128,14 +128,14 @@ public class Player {
 ```java
 public class Account {
     private static Account instance;
-    
+
     public static Account getInstance() {
         if(instance == null) {
             instance = new Account();
         }
         return instance;
     }
-    
+
     private Account() { /* 생성자 private으로 제한 */ }
 }
 ```
@@ -153,7 +153,7 @@ public class Order {
         // 생성 과정에서의 추가 로직 처리
         return order;
     }
-    
+
     private Order(Coffee coffee, int orderCnt) { /* 생성자 private으로 제한 */ }
 }
 ```
@@ -168,10 +168,10 @@ public class Order {
 public enum OrderStatus {
     OK(200, "주문 생성 성공"),
     FAIL_SOLD_OUT(500, "재고 확보 실패로 인한 주문 취소");
-    
+
     private int code;
     private String desc;
-    
+
     OrderStatus(int code, String desc) {
         this.code = code;
         this.desc = desc;
