@@ -1,11 +1,11 @@
-package com.mc.coffeemanager;
+package com.mc.oop.coffeemanager;
 
 import java.time.Month;
 
 import com.mc.coffeemanager.domain.account.Account;
 import com.mc.coffeemanager.domain.coffee.Coffee;
 import com.mc.coffeemanager.domain.coffee.SeasonCoffee;
-import com.mc.coffeemanager.presentation.Menu;
+import com.mc.oop.coffeemanager.presentation.Menu;
 
 public class Run {
 

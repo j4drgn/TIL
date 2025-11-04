@@ -5,47 +5,57 @@
 ## 디렉토리 구조
 
 ### a_ot
+
 - 기본 알고리즘 개념 및 연산자 활용 예제
 - XOR 연산을 활용한 변수 교환 등의 기법
 
 ### b_star
+
 - 별 찍기 패턴 알고리즘
 - 다이아몬드, 나비 등 다양한 패턴 구현
 
 ### c_math
+
 - 수학 관련 알고리즘
 - 소수 판별, 최대공약수(GCD), 최소공배수(LCM), 팩토리얼 등
 
 ### d_datastructure
+
 - 자료구조 구현
 - ArrayList, LinkedList, HashSet 등 기본 자료구조의 직접 구현
 - dto, list, set, map, queue, stack, bst 패키지로 구성
 
 ### e_search
+
 - 검색 알고리즘 구현
 - 선형 탐색(Linear Search)
 - 이진 탐색(Binary Search)
 
 ### f_bruteforce
+
 - 정렬 알고리즘 구현
 - 버블 정렬(Bubble Sort)
 - 선택 정렬(Selection Sort)
 
 ### f2_lambda
+
 - 람다 표현식과 함수형 인터페이스 구현
 - Consumer, Supplier, Function, Predicate 인터페이스
 
 ### g_divideandconcure
+
 - 분할 정복 알고리즘 구현
 - 병합 정렬(Merge Sort): 하향식(Top-down)과 상향식(Bottom-up) 구현
 - 퀵 정렬(Quick Sort): 재귀적 구현과 비재귀적(스택 기반) 구현
 - 거듭제곱 계산: 분할 정복을 이용한 O(log n) 알고리즘
 
 ### h_dp
+
 - 동적 계획법(Dynamic Programming) 알고리즘 구현
 - 피보나치 수열: 재귀적 접근법과 동적 계획법 비교
 
 ### util
+
 - 알고리즘 구현에 필요한 유틸리티 클래스
 - SortUtil: 정렬 알고리즘 유틸리티
 - Timer: 알고리즘 실행 시간 측정 인터페이스
@@ -63,6 +73,7 @@ a = b ^ a;  // a = 1011 ^ 11011 = 10000 (원래의 b 값)
 ```
 
 XOR 연산의 주요 특성:
+
 - a xor 0 = a (어떤 값이든 0과 XOR 연산하면 원래 값이 유지됨)
 - a xor 1 = not a (비트별로 1과 XOR 연산하면 비트가 반전됨)
 - (a ^ b) ^ b = a
@@ -96,11 +107,11 @@ XOR 연산의 주요 특성:
 
 #### 최소공배수(LCM) 계산
 
-- LCM(a, b) = (a * b) / GCD(a, b)
+- LCM(a, b) = (a \* b) / GCD(a, b)
 
 #### 팩토리얼 구현
 
-- **일반 재귀**: n! = n * (n-1)!
+- **일반 재귀**: n! = n \* (n-1)!
 - **꼬리 재귀**: 반환부에 연산이 없는 최적화된 재귀 방식
 
 ### 4. 자료구조
@@ -113,37 +124,37 @@ XOR 연산의 주요 특성:
 
 #### 리스트(List) 구현
 
-- **_ArrayList 클래스**: 동적 배열 구현
+- **\_ArrayList 클래스**: 동적 배열 구현
   - 요소 추가/조회/삭제 기능 구현
   - 배열 크기 동적 조정
   - Iterator 구현으로 향상된 for문 지원
-- **_LinkedList 클래스**: 연결 리스트 구현
+- **\_LinkedList 클래스**: 연결 리스트 구현
 - **Node 클래스**: 연결 리스트의 노드 구현
 
 #### 집합(Set) 구현
 
-- **_HashSet_P1 클래스**: 기본적인 해시 집합 구현
+- **\_HashSet_P1 클래스**: 기본적인 해시 집합 구현
   - 해시 충돌 시 추가 거부 방식
-- **_HashSet_P2 클래스**: 체이닝 방식으로 해시 충돌 처리
+- **\_HashSet_P2 클래스**: 체이닝 방식으로 해시 충돌 처리
   - 연결 리스트를 사용한 체이닝
   - Iterator 구현으로 향상된 for문 지원
 
 #### 맵(Map) 구현
 
-- **_HashMap 클래스**: 해시맵 구현
+- **\_HashMap 클래스**: 해시맵 구현
   - 키-값 쌍 저장
   - 해시 충돌 처리
 - **Entry 클래스**: 키-값 쌍을 저장하는 엔트리 구현
 
 #### 큐(Queue) 구현
 
-- **_Queue 클래스**: 큐 자료구조 구현
+- **\_Queue 클래스**: 큐 자료구조 구현
   - FIFO(First In First Out) 방식
   - enqueue, dequeue 연산 지원
 
 #### 스택(Stack) 구현
 
-- **_Stack 클래스**: 스택 자료구조 구현
+- **\_Stack 클래스**: 스택 자료구조 구현
   - LIFO(Last In First Out) 방식
   - push, pop 연산 지원
 
@@ -201,7 +212,7 @@ XOR 연산의 주요 특성:
 
 - 분할 정복을 이용한 효율적인 거듭제곱 계산
 - a^b를 O(log b) 시간 복잡도로 계산
-- 핵심 아이디어: a^b = (a^(b/2))^2 (b가 짝수) 또는 a * (a^(b/2))^2 (b가 홀수)
+- 핵심 아이디어: a^b = (a^(b/2))^2 (b가 짝수) 또는 a \* (a^(b/2))^2 (b가 홀수)
 
 ### 8. 동적 계획법(Dynamic Programming)
 

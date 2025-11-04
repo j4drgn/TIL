@@ -1,6 +1,6 @@
-package com.mc.coffeemanager.domain.discount.policy;
+package com.mc.oop.coffeemanager.domain.discount.policy;
 
-import com.mc.coffeemanager.domain.discount.condition.DiscountConditionType;
+import com.mc.oop.coffeemanager.domain.discount.condition.DiscountConditionType;
 import com.mc.coffeemanager.domain.order.Order;
 
 public class PercentDiscountPolicy extends DiscountPolicy {

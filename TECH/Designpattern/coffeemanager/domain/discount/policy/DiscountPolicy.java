@@ -1,4 +1,4 @@
-package com.mc.coffeemanager.domain.discount.policy;
+package com.mc.oop.coffeemanager.domain.discount.policy;
 
 import com.mc.coffeemanager.domain.order.Order;
 

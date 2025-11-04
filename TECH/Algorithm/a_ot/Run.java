@@ -1,38 +1,82 @@
 package com.mc.algorithm.a_ot;
 
+/**
+ * 알고리즘 기초 개념을 다루는 클래스
+ * 이 클래스는 기본적인 알고리즘 개념과 비트 연산을 활용한 예제를 포함합니다.
+ */
 public class Run {
 
-  public static void main(String[] args) {
+	/**
+	 * 메인 메소드
+	 * 주석 처리된 메소드들을 필요에 따라 호출하여 실행할 수 있습니다.
+	 * 
+	 * @param args 명령행 인자
+	 */
+	public static void main(String[] args) {
+		
+		//swap();        // 임시 변수를 사용한 두 변수의 값 교환
+		//swapUsingBits(); // 비트 연산을 사용한 두 변수의 값 교환
+	}
 
-    // a 에 담긴 값을 b에, b에 담긴 값을 a에 넣어주세요.
-    // 단 대입연산자만 사용해야합니다.
-    // 값을 직접 변수에 할당할 수는 없습니다.
+	/**
+	 * 비트 연산(XOR)을 사용하여 두 변수의 값을 교환하는 메소드
+	 * 
+	 * XOR 연산의 특성을 활용:
+	 * 1. (a ^ b) ^ b = a
+	 * 2. (a ^ b) ^ a = b
+	 * 
+	 * 이 방법은 임시 변수를 사용하지 않고도 두 변수의 값을 교환할 수 있습니다.
+	 */
+	private static void swapUsingBits() {
+		int a = 11; // 이진수로 1011
+		int b = 16; // 이진수로 10000
+		
+		// (a ^ b) ^ b = a
+		// (a ^ b) ^ a = b
+		a = a ^ b;  // a = 1011 ^ 10000 = 11011
+		
+		b = a ^ b;  // b = 11011 ^ 10000 = 1011 (원래의 a 값)
+		a = b ^ a;  // a = 1011 ^ 11011 = 10000 (원래의 b 값)
+		
+		System.out.println(a); // 16 출력
+		System.out.println(b); // 11 출력
+		
+		// XOR 연산의 중요한 특성:
+		// a xor 0 은 언제나 a     (어떤 값이든 0과 XOR 연산하면 원래 값이 유지됨)
+		// a xor 1 은 언제나 not a (비트별로 1과 XOR 연산하면 비트가 반전됨)
+		
+		// 비트 연산 과정 예시:
+		// a =  1011 (11)
+		// b =  10000 (16)
+		
+		// a^b = 11011
+		// (a^b)^b = 1011 (원래의 a)
+		// (a^b)^a = 10000 (원래의 b)
+	}
 
-    int a = 10;
-    int b = 15;
-
-    // (a ^ b) ^ b = a
-    // (a ^ b) ^ a = b
-    a = a ^ b;
-    b = a ^ b;
-    a = b ^ a;
-
-    swap(a, b);
-
-    //a xor 0은 언제나 a
-    //a xor 1은 언제나 not a
-
-    // a = 1001
-    // b = 0101
-  }
-
-  private static void swap(int a, int b) {
-    int c = a;
-    a = b;
-    b = c;
-
-    System.out.println(a);
-    System.out.println(b);
-  }
+	/**
+	 * 임시 변수를 사용하여 두 변수의 값을 교환하는 메소드
+	 * 
+	 * 문제 조건:
+	 * - a에 담긴 값을 b에, b에 담긴 값을 a에 넣기
+	 * - 대입 연산자만 사용해야 함
+	 * - 값을 직접 변수에 할당할 수 없음
+	 * 
+	 * 이 방법은 임시 변수(temp)를 사용하여 두 변수의 값을 교환합니다.
+	 */
+	private static void swap() {
+		// a 에 담긴 값을 b 에, b 에 담긴 값을 a 에 넣어주세요.
+		// 단 대입연산자만 사용해야합니다.
+		// 값을 직접 변수에 할당할 수 는 없습니다.
+		int a = 10;
+		int b = 15;
+		
+		int temp = b;  // 임시 변수에 b의 값을 저장
+		b = a;         // b에 a의 값을 대입
+		a = temp;      // a에 임시 변수(원래 b의 값)를 대입
+		
+		System.out.println(a); // 15 출력
+		System.out.println(b); // 10 출력
+	}
 
 }

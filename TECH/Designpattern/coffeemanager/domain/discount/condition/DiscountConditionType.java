@@ -1,4 +1,4 @@
-package com.mc.coffeemanager.domain.discount.condition;
+package com.mc.oop.coffeemanager.domain.discount.condition;
 
 import java.time.DayOfWeek;
 

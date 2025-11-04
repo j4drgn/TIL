@@ -1,9 +1,9 @@
-package com.mc.coffeemanager.domain.sale;
+package com.mc.oop.coffeemanager.domain.sale;
 
-import com.mc.coffeemanager.domain.discount.policy.AmountDiscountPolicy;
-import com.mc.coffeemanager.domain.discount.policy.PercentDiscountPolicy;
-import com.mc.coffeemanager.domain.order.Order;
-import com.mc.coffeemanager.domain.payment.Payment;
+import com.mc.oop.coffeemanager.domain.discount.policy.AmountDiscountPolicy;
+import com.mc.oop.coffeemanager.domain.discount.policy.PercentDiscountPolicy;
+import com.mc.oop.coffeemanager.domain.order.Order;
+import com.mc.oop.coffeemanager.domain.payment.Payment;
 
 public class SaleContext {
 

@@ -1,7 +1,7 @@
-package com.mc.coffeemanager.domain.payment;
+package com.mc.oop.coffeemanager.domain.payment;
 
 import com.mc.coffeemanager.domain.account.Account;
-import com.mc.coffeemanager.domain.discount.policy.DiscountPolicy;
+import com.mc.oop.coffeemanager.domain.discount.policy.DiscountPolicy;
 import com.mc.coffeemanager.domain.order.Order;
 
 public class Payment {
